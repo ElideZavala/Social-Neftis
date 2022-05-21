@@ -1,0 +1,143 @@
+.login {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-display: column;
+	height: 100vh;
+	max-width: 100%;
+	background-image: radial-gradient(circle at 0% 0%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+	animation: 2s linear 0s infinite alternate-reverse background;
+
+	@keyframes background {
+		10% {
+			background-image: radial-gradient(circle at 0% 0%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+		20% {
+			background-image: radial-gradient(circle at 9.64% -7.24%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+
+		30% {
+			background-image: radial-gradient(circle at 12.12% -9.09%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);;
+		}
+
+		40% {
+			background-image: radial-gradient(circle at 15.82% -14.45%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+
+		50% {
+			background-image: radial-gradient(circle at 18.72% -19.64%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+
+		60% {
+			background-image: radial-gradient(circle at 21.84% -17.44%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+
+		70% {
+			background-image: radial-gradient(circle at 24% -20.71%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+
+		80% {
+			background-image: radial-gradient(circle at 27.28% -23.64%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+
+		90% {
+			background-image: radial-gradient(circle at 30.3% -26.3%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+
+		100% {
+			background-image: radial-gradient(circle at 33.18% -29.45%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+	}
+
+	&__theme {
+		@extend %theme;
+
+		// &::before {
+		// 	position: absolute;
+		// 	content: "";
+		// 	display: flex;
+		// 	align-items: center;
+		// 	justify-content: center;
+		// 	width: 5rem;
+		// 	height: 5rem;
+		// 	border-radius: 50%;
+		// 	border: .5px solid black;
+		// }
+	}
+
+	&__header {
+		font-size: font-size(font-size-xlarge);;
+		color: var(--color-secondary);
+
+		span {
+			text-transform: uppercase;
+			color: var(--color-primary);
+		}
+	}
+
+	&__subheader {
+		font-size: font-size(font-size-large);;
+		padding: 1rem;
+		margin-bottom: 1rem;
+		letter-spacing: 1.5px;
+		color: var(--color-quaternary);
+	}
+	
+	&__data {
+		&--form {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			background-color: var(--color-quaternary);
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.543);
+			border-radius: 8px;
+			height: calc(5rem + 20vw);
+			min-width: 25vw;
+			padding: 4rem;
+			position: relative;
+			
+			&__showpass {
+				position: absolute;
+				top: 40.6%;
+				right: 17%;
+				cursor: pointer;
+				font-size: font-size(font-size-small);
+				letter-spacing: 1px;
+				color: var(--color-primary);
+			}
+
+			&__email,
+			&__password,
+			&__button {
+				@extend %inputBtn;
+			}
+
+			&__email,
+			&__password {
+				@extend %input;
+			}
+
+			&__button {
+				font-weight: 800;
+				text-transform: uppercase;
+				cursor: pointer;
+				background: linear-gradient(60deg, var(--color-quinary), var(--color-tertiary));
+				box-shadow: 0 0 5px var(--color-quinary), 0 0 15px var(--color-tertiary);
+				transition: background .5s ease-in-out;
+				transition: box-shadow .5s ease-in-out;
+
+				&:hover {
+					background: linear-gradient(60deg, var(--color-secondary), var(--color-primary));
+					box-shadow: 0 0 5px var(--color-secondary), 0 0 15px var(--color-primary);
+					color: var(--color-text2);
+				}
+			}
+
+			&__small {
+				@extend %formSmall;
+			}
+		}
+
+	}
+}

@@ -1,0 +1,58 @@
+// **-**-**-**-**-**-**-**-**-** Imports **-**-**-**-**-**-**-**-**-**-**
+
+@import "1.reset";
+@import "2.variables";
+@import "3.utilities";
+@import "4.login";
+@import "5.register";
+@import "6.spinner";
+@import "7.toast";
+
+// **-**-**-**-**-**-**-**-**-** Extend **-**-**-**-**-**-**-**-**-**-**
+
+%theme {
+	position: absolute;
+	top: 5rem;
+	right: 5rem;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	background-color: black;
+	cursor: pointer;
+}
+
+%input {
+	background: transparent;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.543);
+	font-weight: 700;
+	letter-spacing: 2px;
+	text-indent: 10px;
+	text-shadow: 0 0 3px var(--color-text);
+}
+
+%inputBtn {
+	border: none;
+	outline: none;
+	font-family: 'Catamaran', sans-serif;
+	font-size: font-size(font-size-medium);
+	letter-spacing: 2px;
+	border-radius:  1rem;
+	color: var(--color-text);
+	padding: .5vw 1vw;
+}
+
+%formSmall {
+	font-size: font-size(font-size-regular);
+	text-align: center;
+	
+	a {
+		color: var(--color-primary);
+		margin-left: .5vw;
+		transition: color 0.3s ease-in-out;
+		
+		&:hover {
+			color: var(--color-secondary);
+		}
+	}
+}
+

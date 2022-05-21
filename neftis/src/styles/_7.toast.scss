@@ -1,0 +1,34 @@
+.toast {
+	position: fixed;
+	top: 1vw;
+	right: 8px;
+	width: 18%;
+	z-index: 50;
+	border-radius: .5rem;
+	background-color: var(--color-tertiary);
+	box-shadow: 0 0 10px var(--color-text2);
+	padding: 0.5rem 1rem;
+	transition: all 0.5s ease-in;
+	
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 2px solid var(--color-quinary-m);
+		padding-bottom: .5rem;
+		
+		&--title {
+			font-size: font-size(font-size-regular);
+		}	
+
+		&--icon {
+			font-size: font-size(font-size-medium);
+			cursor: pointer;
+			font-weight: 700;
+		}
+	}
+	&__body {
+		font-size: font-size(font-size-regular);
+		padding: 1rem 0;
+	}
+}
