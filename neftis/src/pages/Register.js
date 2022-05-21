@@ -74,6 +74,7 @@ const Register = () => {
 				onChange={handleChange} 
 				placeholder="Type your password">
 			</input>
+
 			<small className="register__data--form__showRegPass" onClick={()=>setShowpass(!showpass)}>{showpass ? "Hide" : "Show" }</small>
 
 			<input 
@@ -91,7 +92,6 @@ const Register = () => {
 				value={gender} 
 				onChange={handleChange}
 			 	placeholder="Gender">
-				<option value="">Gender:</option>
 				<option value="male">Male</option>
 				<option value="female">Female</option>
 				<option value="other">Other</option>

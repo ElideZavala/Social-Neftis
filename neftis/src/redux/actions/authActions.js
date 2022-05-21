@@ -1,5 +1,6 @@
 import { postDataApi } from '../../utils/fetchDataApi';
 import { ALERT_TYPES } from "./alertActions";
+import valid from "../../utils/valid";
 
 export const TYPES = {
 	AUTH : 'AUTH'
@@ -79,7 +80,10 @@ export const refreshToken = () => async( dispatch ) => {
 
 export const register = (data) => async (dispatch) => {
 	try {
-		console.log(data)
+		const check = valid(data);
+		if ( check.errLength > 0 ) {
+			dispatch({type: 'ALERT', payload: check.errMsg})
+		}
 	} catch (error) {
 		dispatch({
 			type: 'ALERT',
