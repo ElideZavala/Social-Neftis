@@ -12,7 +12,7 @@ const Register = () => {
 	const [userData, setuserData] = useState(initialState)
 	const {username, fullname, email, password, confirmPassword, gender} = userData;
 
-	const { auth } = useSelector(state => state);
+	const { auth, alert } = useSelector(state => state);
 	const dispatch = useDispatch();
 	const history = useHistory(); // Mandar al Usuario a una ruta de inicio.
 
@@ -32,6 +32,8 @@ const Register = () => {
 		dispatch(register(userData));
 	}
 
+	const styles = { background: `${alert.fullname ? '#E84A5F' : ' '}`, color: `${alert.fullname ? '#000' : ' '}`}
+
   return (
 	<div className="register "> {/* Colocar el thema Dark */}
 	<div className="register__theme"></div>
@@ -45,8 +47,10 @@ const Register = () => {
 				value={fullname}
 				name="fullname"
 				onChange={handleChange} 
-				placeholder="Type your fullname">
-			</input>
+				placeholder= {alert.fullname ? `${alert.fullname}` : 'Enter your fullname'}
+				style={styles}
+				>
+			</input>			 
 
 			<input 
 				className="register__data--form__username"
@@ -54,8 +58,10 @@ const Register = () => {
 				name="username"
 				value={username.toLowerCase().replace(/ /g,'')} /* Union de las palabras*/
 				onChange={handleChange} 
-				placeholder="Type your Username">
+				placeholder="Type your Username"
+				style={styles}>
 			</input>
+			{ alert.username ? <small style={{color: 'red'}}>{alert.username}</small> : ' '}
 
 			<input 
 				className="register__data--form__email"
@@ -65,6 +71,7 @@ const Register = () => {
 				onChange={handleChange}
 				placeholder="Type your Email">
 			</input>
+			{ alert.email ? <small>{alert.email}</small> : ' '}
 
 			<input 
 				className="register__data--form__password"
@@ -74,6 +81,7 @@ const Register = () => {
 				onChange={handleChange} 
 				placeholder="Type your password">
 			</input>
+			{ alert.password ? <small>{alert.password}</small> : ' '}
 
 			<small className="register__data--form__showRegPass" onClick={()=>setShowpass(!showpass)}>{showpass ? "Hide" : "Show" }</small>
 
@@ -85,6 +93,7 @@ const Register = () => {
 				onChange={handleChange}
 				placeholder="Confirm your Password">
 			</input>
+			{ alert.confirmPassword ? <small>{alert.confirmPassword}</small> : ' '}
 
 			<select 
 				className="register__data--form__select" 
