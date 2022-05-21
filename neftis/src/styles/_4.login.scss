@@ -116,6 +116,10 @@
 			&__email,
 			&__password {
 				@extend %input;
+
+				&::placeholder {
+					font-size: font-size(font-size-regular);
+				}
 			}
 
 			&__button {

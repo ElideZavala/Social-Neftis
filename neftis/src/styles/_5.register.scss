@@ -99,8 +99,8 @@
 
 			&__showRegPass {
 				position: absolute;
-				top: 60.2%;
-				right: 15%;
+				top: 47.7%;
+				right: 13%;
 				cursor: pointer;
 				font-size: font-size(font-size-small);
 				letter-spacing: 1px;
@@ -109,8 +109,8 @@
 
 			&__showRegConfPass {
 				position: absolute;
-				top: 72.3%;
-				right: 15%;
+				top: 60.3%;
+				right: 13%;
 				cursor: pointer;
 				font-size: font-size(font-size-small);
 				letter-spacing: 1px;
@@ -135,6 +135,12 @@
 			&__confirmPassword,
 			&__select {
 				@extend %input;
+
+				&::placeholder {
+					font-size: font-size(font-size-regular);
+					color: #ffffffa5;
+					text-shadow: none;
+				}
 			}
 
 			&__select {

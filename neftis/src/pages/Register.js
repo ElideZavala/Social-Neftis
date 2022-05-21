@@ -32,7 +32,10 @@ const Register = () => {
 		dispatch(register(userData));
 	}
 
-	const styles = { background: `${alert.fullname ? '#E84A5F' : ' '}`, color: `${alert.fullname ? '#000' : ' '}`}
+	const styles = { 
+		background: `${alert.fullname ? '#E84A5F' : ' '}`, 
+		color: `${alert.fullname? '#000' : ' '}`,
+	}
 
   return (
 	<div className="register "> {/* Colocar el thema Dark */}
@@ -48,8 +51,8 @@ const Register = () => {
 				name="fullname"
 				onChange={handleChange} 
 				placeholder= {alert.fullname ? `${alert.fullname}` : 'Enter your fullname'}
-				style={styles}
-				>
+				style={{background: `${alert.fullname ? '#E84A5F' : ' '}`, 
+				color: `${alert.fullname ? '#000' : ' '}`}}>
 			</input>			 
 
 			<input 
@@ -58,10 +61,10 @@ const Register = () => {
 				name="username"
 				value={username.toLowerCase().replace(/ /g,'')} /* Union de las palabras*/
 				onChange={handleChange} 
-				placeholder="Type your Username"
-				style={styles}>
+				placeholder= {alert.username ? `${alert.username}` : 'Enter your Username'}
+				style={{background: `${alert.username ? '#E84A5F' : ' '}`, 
+				color: `${alert.username ? '#000' : ' '}`}}>
 			</input>
-			{ alert.username ? <small style={{color: 'red'}}>{alert.username}</small> : ' '}
 
 			<input 
 				className="register__data--form__email"
@@ -69,9 +72,10 @@ const Register = () => {
 				value={email}
 				name="email"
 				onChange={handleChange}
-				placeholder="Type your Email">
+				placeholder= {alert.email ? `${alert.email}` : 'Enter your Email'}
+				style={{background: `${alert.email ? '#E84A5F' : ' '}`, 
+				color: `${alert.email ? '#000' : ' '}`}}>
 			</input>
-			{ alert.email ? <small>{alert.email}</small> : ' '}
 
 			<input 
 				className="register__data--form__password"
@@ -79,9 +83,10 @@ const Register = () => {
 				value={password}
 				name="password"
 				onChange={handleChange} 
-				placeholder="Type your password">
+				placeholder= {alert.password ? `${alert.password}` : 'Enter your Password'}
+				style={{background: `${alert.password ? '#E84A5F' : ' '}`, 
+				color: `${alert.password ? '#000' : ' '}`}}>
 			</input>
-			{ alert.password ? <small>{alert.password}</small> : ' '}
 
 			<small className="register__data--form__showRegPass" onClick={()=>setShowpass(!showpass)}>{showpass ? "Hide" : "Show" }</small>
 
@@ -91,9 +96,12 @@ const Register = () => {
 				value={confirmPassword}
 				name="confirmPassword"
 				onChange={handleChange}
-				placeholder="Confirm your Password">
+				placeholder= {alert.confirmPassword ? `${alert.confirmPassword}` : 'Enter your ConfirmPassword'}
+				style={{background: `${alert.confirmPassword ? '#E84A5F' : ' '}`, 
+				color: `${alert.confirmPassword ? '#000' : ' '}`}}>
 			</input>
-			{ alert.confirmPassword ? <small>{alert.confirmPassword}</small> : ' '}
+
+			<small className="register__data--form__showRegConfPass" onClick={()=>setShowconfpass(!showconfpass)}>{showconfpass ? "Hide" : "Show" }</small>
 
 			<select 
 				className="register__data--form__select" 
@@ -106,7 +114,6 @@ const Register = () => {
 				<option value="other">Other</option>
 			</select>
 
-			<small className="register__data--form__showRegConfPass" onClick={()=>setShowconfpass(!showconfpass)}>{showconfpass ? "Hide" : "Show" }</small>
 
 			<button className="register__data--form__button" type="submit">Sing Up</button>
 			<small  className="register__data--form__small">Already have an account <Link to="/">Log In Here</Link></small>
