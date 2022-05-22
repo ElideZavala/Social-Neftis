@@ -21,20 +21,16 @@ const Register = () => {
 		setuserData({...userData, [name]:value})
 	}
 
-	// useEffect(() => {
-	// 	if(auth.token) {
-	// 		history.push('/')
-	// 	}
-	// },[auth.token, history])
+	// Nos llevara hasta la pagina principal.
+	useEffect(() => {
+		if(auth.token) {
+			history.push('/')
+		}
+	},[auth.token, history])
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(register(userData));
-	}
-
-	const styles = { 
-		background: `${alert.fullname ? '#E84A5F' : ' '}`, 
-		color: `${alert.fullname? '#000' : ' '}`,
 	}
 
   return (

@@ -26,11 +26,11 @@ const authController = {
 				gender,
 			});
 
-			const accessToken = createAccessToken({id: newser._id}) 
-			const refreshToken = createrRefreshToken({id: newser._id}) 
+			const accessToken = createAccessToken({id: newUser._id}) 
+			const refresh_token = createrRefreshToken({id: newUser._id}) 
 
 			// Creamos los cookie con nuestro token.
-			res.cookie('refreshtoken', refreshToken, {
+			res.cookie('refreshtoken', refresh_token, {
 				httpOnly: true,
 				path: "/api/refresh_token", // Direccion de nuestro Cookie
 				maxAge: 24*30*60*60*1000 // Duracion de cookie. ==> 30 Days. 
@@ -74,10 +74,10 @@ const authController = {
 			})
 
 			const accessToken = createAccessToken({id: user._id}) 
-			const refreshToken = createrRefreshToken({id: user._id}) 
+			const refresh_token = createrRefreshToken({id: user._id}) 
 
 			// Creamos los cookie con nuestro token.
-			res.cookie('refreshtoken', refreshToken, {
+			res.cookie('refreshtoken', refresh_token, {
 				httpOnly: true,
 				path: "/api/refresh_token", // Direccion de nuestro Cookie
 				maxAge: 24*30*60*60*1000 // Duracion de cookie. ==> 30 Days. 
@@ -112,7 +112,9 @@ const authController = {
 	generateAccessToken: async (req, res) => {
 		try {
 			const rf_token = req.cookies.refreshtoken;
-			// Si no encotramos el token
+			// Si no encotramos el token // Verificar si no existe ningun error.+
+
+			
 			if(!rf_token) return res.status(400).json({msg: "please login now"});
 
 			jwt.verify(rf_token, process.env.REFRESHTOKENSECRET, async(err, result) => {

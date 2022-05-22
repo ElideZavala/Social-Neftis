@@ -15,7 +15,9 @@ export const login = (data) => async (dispatch) => {
 			}
 		})
 		const res = await postDataApi('login', data);
-		console.log(data);
+
+		localStorage.setItem('login', true);
+
 		dispatch({
 			type: 'AUTH',
 			payload: {
@@ -84,11 +86,34 @@ export const register = (data) => async (dispatch) => {
 		if ( check.errLength > 0 ) {
 			dispatch({type: 'ALERT', payload: check.errMsg})
 		}
+		dispatch({type: "ALERT", payload: {loading: true}})
+
+		const res = postDataApi('register', data);
+		console.log(res);
+		
+		localStorage.setItem('login', true);
+
+		dispatch({
+			type: 'AUTH',
+			payload: {
+				token: res.data.accessToken,
+				user: res.data.user,
+			} 
+		})
+		
+		dispatch({
+			type: ALERT_TYPES.ALERT,
+			payload: {
+				success:res.data.msg
+			}
+		})
+
 	} catch (error) {
+		console.log(error);
 		dispatch({
 			type: 'ALERT',
 			payload: {
-				error: error.response.data.msg
+				error: error.res.data.msg
 			}
 		})
 	}
