@@ -16,6 +16,8 @@ export const login = (data) => async (dispatch) => {
 		})
 		const res = await postDataApi('login', data);
 		
+		localStorage.setItem('login', true);
+		
 		dispatch({
 			type: 'AUTH',
 			payload: {
@@ -24,7 +26,6 @@ export const login = (data) => async (dispatch) => {
 			} 
 		})
 		
-		localStorage.setItem('login', true);
 
 		dispatch({
 			type: ALERT_TYPES.ALERT,
@@ -116,4 +117,21 @@ export const register = (data) => async (dispatch) => {
 			}
 		})
 	}
+}
+
+export const logout = () => async (dispatch) => {
+	try {
+		localStorage.removeItem('login');
+		await postDataApi('logout');
+		window.location.href="/";
+	} catch (error) {
+		console.log(error);
+		dispatch({
+			type: "ALERT",
+			payload: {
+				error: error.res.data.msg
+			}
+		})
+	}
+
 }

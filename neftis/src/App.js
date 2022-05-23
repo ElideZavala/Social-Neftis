@@ -24,8 +24,8 @@ function App() {
     <div className="App light"> {/* Colocar el thema dark o light*/}
       <Router>
         {/* <Alert/> */}
-        {/* { auth.token && <Header/> }  ==> Es el original */}
-        <Header/> 
+        { auth.token && <Header/>}
+        {/* <Header/>  */}
         <Switch>
           {/* // Nombre de la ruta se llamada register. */}
           <Route exact path="/register"> 
@@ -33,7 +33,7 @@ function App() {
             <Register />
           </Route>
           <Route exact path="/">
-            {/* {auth.token ? <Home/> : <Login/>} ==> Es el Original. */}
+            {auth.token ? <Home/> : <Login/>}
             {/* {auth.token ? <Login/> : <Home/>}  */}
           </Route>
           <Route exact path='/post/:id'>

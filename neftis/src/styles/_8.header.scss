@@ -7,12 +7,24 @@
 	width: 100%;
 	padding: 1rem;
 
+	&__right {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 1rem;
+
+		&--fullname {
+			font-size: font-size(font-size-medium);
+			text-transform: uppercase;
+			letter-spacing: 1.2px;
+		}
+	}
+
 	&__center {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		// padding: .5rem .8rem;
-		flex: 0.35;
+		flex: 0.4;
 		@extend %difuminado;
 
 		input {
@@ -26,9 +38,8 @@
 			font-weight: 500;
 			letter-spacing: 1.5px;
 			border-bottom: 1px solid var(--color-tertiary);
+			text-indent: 0.5rem;
 		}
-
-
 	}
 
 	&__left {
@@ -43,6 +54,10 @@
 			justify-content: space-between;
 			align-items: center;
 			margin-right: 1rem;
+
+			&__user {
+				margin-left: 1rem;
+			}
 		}
 	}
 }

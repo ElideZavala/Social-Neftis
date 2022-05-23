@@ -113,7 +113,6 @@ const authController = {
 		try {
 			const rf_token = req.cookies.refreshtoken;
 			// Si no encotramos el token // Verificar si no existe ningun error.+
-
 			
 			if(!rf_token) return res.status(400).json({msg: "please login now"});
 
