@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App light"> {/* Colocar el thema dark o light*/}
       <Router>
-        <Alert/>
+        {/* <Alert/> */}
         {/* { auth.token && <Header/> }  ==> Es el original */}
         <Header/> 
         <Switch>
