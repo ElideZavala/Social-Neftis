@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../redux/actions/authActions";
 import { useDispatch } from "react-redux";
-
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 const Login = () => {
 	const initialState = {email: '', password: ''}
@@ -50,7 +49,7 @@ const Login = () => {
 					placeholder="Type your password">
 				</input>
 				
-				<small className="login__data--form__showpass" onClick={()=>setShowpass(!showpass)}>{showpass ? "Hide" : "Show" }</small>
+				<small className="login__data--form__showpass" onClick={()=>setShowpass(!showpass)}>{showpass ? <VisibilityOffIcon/> : <VisibilityIcon/> }</small>
 
 				<button className="login__data--form__button" type="submit">Log In</button>
 				<p className="login__data--form__small">Do not have account <Link to="register">Create Here</Link></p>

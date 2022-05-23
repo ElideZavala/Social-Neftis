@@ -1,5 +1,6 @@
 import React from 'react'
 import IconButton from "@material-ui/core/IconButton";
+import HomeIcon from "@material-ui/icons/Home";
 
 export const Header = () => {
 	return ( 
@@ -13,7 +14,7 @@ export const Header = () => {
 			</div>
 			<div className="header__left">
 				<IconButton>
-
+					<HomeIcon/>
 				</IconButton>
 			</div>
 		</div>

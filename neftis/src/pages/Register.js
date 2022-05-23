@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { register } from '../redux/actions/authActions'
+import { register } from '../redux/actions/authActions';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 
 const Register = () => {
@@ -84,7 +86,7 @@ const Register = () => {
 				color: `${alert.password ? '#000' : ' '}`}}>
 			</input>
 
-			<small className="register__data--form__showRegPass" onClick={()=>setShowpass(!showpass)}>{showpass ? "Hide" : "Show" }</small>
+			<small className="register__data--form__showRegPass" onClick={()=>setShowpass(!showpass)}>{showpass ? <VisibilityOffIcon/> : <VisibilityIcon/> }</small>
 
 			<input 
 				className="register__data--form__confirmPassword"
@@ -96,8 +98,8 @@ const Register = () => {
 				style={{background: `${alert.confirmPassword ? '#E84A5F' : ' '}`, 
 				color: `${alert.confirmPassword ? '#000' : ' '}`}}>
 			</input>
-
-			<small className="register__data--form__showRegConfPass" onClick={()=>setShowconfpass(!showconfpass)}>{showconfpass ? "Hide" : "Show" }</small>
+			
+			<small className="register__data--form__showRegConfPass" onClick={()=>setShowconfpass(!showconfpass)}>{showconfpass ? <VisibilityOffIcon/> : <VisibilityIcon/> }</small>
 
 			<select 
 				className="register__data--form__select" 
