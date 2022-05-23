@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Post from './pages/Post';
 import NotFound from './pages/NotFound';
 import Alert from "./components/Alert";
+import Header from "./components/Header";
 import Home from "./pages/Home";
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from "react";
@@ -23,6 +24,8 @@ function App() {
     <div className="App light"> {/* Colocar el thema dark o light*/}
       <Router>
         <Alert/>
+        {/* { auth.token && <Header/> }  ==> Es el original */}
+        <Header/> 
         <Switch>
           {/* // Nombre de la ruta se llamada register. */}
           <Route exact path="/register"> 
@@ -30,8 +33,8 @@ function App() {
             <Register />
           </Route>
           <Route exact path="/">
+            {/* {auth.token ? <Home/> : <Login/>} ==> Es el Original. */}
             {/* {auth.token ? <Login/> : <Home/>}  */}
-            {auth.token ? <Home/> : <Login/>} 
           </Route>
           <Route exact path='/post/:id'>
             <Post/>
