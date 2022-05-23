@@ -1,15 +1,24 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { login } from "../redux/actions/authActions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 const Login = () => {
 	const initialState = {email: '', password: ''}
+	const history = useHistory();
+	const { auth } = useSelector(state => state)
 	const [showpass, setShowpass] = useState(false)
 	const [userData, setUserData] = useState(initialState)
  	const dispatch = useDispatch();
+	
+	 useEffect(() => {
+		if(auth.token) {
+			history.push('/')
+		}
+	})
+
 	const {email, password} = userData; 
  
  	// Cada que cambie nuestro nombre y email. 
