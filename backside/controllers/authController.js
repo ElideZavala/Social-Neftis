@@ -26,7 +26,7 @@ const authController = {
 				gender,
 			});
 
-			const accessToken = createAccessToken({id: newUser._id}) 
+			const access_token = createAccessToken({id: newUser._id}) 
 			const refresh_token = createrRefreshToken({id: newUser._id}) 
 
 			// Creamos los cookie con nuestro token.
@@ -41,7 +41,7 @@ const authController = {
 
 			res.json({
 				msg: "registerd success",
-				accessToken,
+				access_token,
 				user:{  
 					...newUser._doc, // Nuestro usuario, sin nuestra contraseña
 					password:''
@@ -73,7 +73,7 @@ const authController = {
 				msg: 'User Password is incorrect',
 			})
 
-			const accessToken = createAccessToken({id: user._id}) 
+			const access_token = createAccessToken({id: user._id}) 
 			const refresh_token = createrRefreshToken({id: user._id}) 
 
 			// Creamos los cookie con nuestro token.
@@ -85,7 +85,7 @@ const authController = {
 
 			res.json({
 				msg: "login success",
-				accessToken,
+				access_token,
 				user:{  
 					...user._doc, // Nuestro usuario, sin nuestra contraseña
 					password:''
@@ -126,10 +126,10 @@ const authController = {
 				if(!user) return res.status(400).json({msg: "user does not exist"})
 
 				// Creamos nuestro acceso con el ID. 
-				const accessToken = createAccessToken({id: result.id })
+				const access_token = createAccessToken({id: result.id })
 				
 				res.status(200).json({
-					accessToken,
+					access_token,
 					user
 				})
 			})

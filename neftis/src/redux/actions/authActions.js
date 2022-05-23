@@ -15,17 +15,17 @@ export const login = (data) => async (dispatch) => {
 			}
 		})
 		const res = await postDataApi('login', data);
-
-		localStorage.setItem('login', true);
-
+		
 		dispatch({
 			type: 'AUTH',
 			payload: {
-				token: res.data.accessToken,
+				token: res.data.access_token,
 				user: res.data.user,
 			} 
 		})
 		
+		localStorage.setItem('login', true);
+
 		dispatch({
 			type: ALERT_TYPES.ALERT,
 			payload: {
@@ -58,15 +58,15 @@ export const refreshToken = () => async( dispatch ) => {
 			dispatch({
 				type: 'AUTH',
 				payload: {
-					token: res.data.accessToken,
-					user: res.data.user,
+					token: res.data.access_token,
+					user: res.data.user
 				}
 			})
 
 			dispatch({
 				type: ALERT_TYPES.ALERT,
 				payload: {
-					success:res.data.msg,
+					success:res.data.msg
 				}
 			})
 		} catch (error) {
@@ -89,18 +89,17 @@ export const register = (data) => async (dispatch) => {
 		dispatch({type: "ALERT", payload: {loading: true}})
 
 		const res = postDataApi('register', data);
-		console.log(res);
 		
-		localStorage.setItem('login', true);
-
 		dispatch({
 			type: 'AUTH',
 			payload: {
-				token: res.data.accessToken,
-				user: res.data.user,
+				token: res.data.access_token,
+				user: res.data.user
 			} 
 		})
 		
+		localStorage.setItem('login', true);
+
 		dispatch({
 			type: ALERT_TYPES.ALERT,
 			payload: {
@@ -111,7 +110,7 @@ export const register = (data) => async (dispatch) => {
 	} catch (error) {
 		console.log(error);
 		dispatch({
-			type: 'ALERT',
+			type: "ALERT",
 			payload: {
 				error: error.res.data.msg
 			}

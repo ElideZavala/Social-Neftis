@@ -7,8 +7,10 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import SearchIcon from "@material-ui/icons/Search";
 import ExitToAAppIcon from "@material-ui/icons/ExitToApp";
 import { Avatar } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
 
 export const Header = () => {
+	const dispatch = useDispatch();
 	return ( 
 		<div className="header">
 			<div className="header__right">
@@ -39,7 +41,7 @@ export const Header = () => {
 				<IconButton>
 					<ExploreIcon/>
 				</IconButton>
-				<IconButton>
+				<IconButton onClick={()=> dispatch(logout())}>
 					<ExitToAAppIcon/>
 				</IconButton>
 			</nav>
