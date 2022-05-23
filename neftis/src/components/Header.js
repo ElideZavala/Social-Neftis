@@ -5,6 +5,7 @@ import ExploreIcon from "@material-ui/icons/Explore"
 import MessageIcon from "@material-ui/icons/Message";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import SearchIcon from "@material-ui/icons/Search";
+import ExitToAAppIcon from "@material-ui/icons/ExitToApp";
 import { Avatar } from '@material-ui/core';
 
 export const Header = () => {
@@ -25,7 +26,7 @@ export const Header = () => {
 						<Avatar/>
 						<h3>Sherlock</h3>
 				</div>	
-				
+
 				<IconButton>
 					<HomeIcon/>
 				</IconButton>
@@ -37,6 +38,9 @@ export const Header = () => {
 				</IconButton>
 				<IconButton>
 					<ExploreIcon/>
+				</IconButton>
+				<IconButton>
+					<ExitToAAppIcon/>
 				</IconButton>
 			</nav>
 		</div>
