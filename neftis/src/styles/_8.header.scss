@@ -40,6 +40,10 @@
 			letter-spacing: 1.5px;
 			border-bottom: 1px solid var(--color-tertiary);
 			text-indent: 0.5rem;
+
+			&::placeholder {
+				text-align: center;
+			}
 		}
 	}
 

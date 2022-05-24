@@ -1,4 +1,9 @@
-import React from 'react'
+import React, { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
+import { logout } from '../redux/actions/authActions';
+
+/* Icons of Material UI */
 import IconButton from "@material-ui/core/IconButton";
 import HomeIcon from "@material-ui/icons/Home"
 import ExploreIcon from "@material-ui/icons/Explore"
@@ -7,11 +12,10 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import SearchIcon from "@material-ui/icons/Search";
 import ExitToAAppIcon from "@material-ui/icons/ExitToApp";
 import { Avatar } from '@material-ui/core';
-import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../redux/actions/authActions';
-import { Link, useLocation } from 'react-router-dom';
 
+/* Header */
 export const Header = () => {
+	const [ search, setSearch ] = useState('');
 	const dispatch = useDispatch();
 	const { auth } = useSelector(state=>state);
 	const { pathname } = useLocation(); // Estraemos pathname del objeto traido por useLocation. 
@@ -25,20 +29,23 @@ export const Header = () => {
 			<div className="header__right">
 				<h3 className="header__right--networks">Social Networks</h3>
 			</div>
-			<div className="header__center">
-				<input type="text" placeholder="Search Profiles"/>
+
+			<form className="header__center">
+				<input type="text" placeholder="Search Profiles" value={ search } onChange={(e)=>setSearch(e.target.value)}/>
+
 				<IconButton>
 					<SearchIcon/>
 				</IconButton>
+			</form>
 
-			</div>
 			<nav className="header__left">
-				<div className="header__left--avatar">
+				<Link className="header__left--avatar" to={`profile/${auth.user._id}`}> 
+						<div className="header__left--avatar">
 						<Avatar src={auth.user.avatar}/>
 						<h3 className="header__left--avatar__user">{auth.user.fullname}</h3>
-				</div>	
-				
-				<Link to="/">
+						</div>	
+				<Link/>
+
 				<IconButton>
 					<HomeIcon className={`${isActive('/')}`}/>
 				</IconButton>

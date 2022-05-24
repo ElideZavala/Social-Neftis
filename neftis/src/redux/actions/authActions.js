@@ -88,7 +88,7 @@ export const register = (data) => async (dispatch) => {
 		}
 		dispatch({type: "ALERT", payload: {loading: true}})
 
-		const res = postDataApi('register', data);
+		const res = await postDataApi('register', data);
 		
 		dispatch({
 			type: 'AUTH',

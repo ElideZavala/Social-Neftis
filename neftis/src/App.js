@@ -15,6 +15,7 @@ import Notifications from "./pages/Notifications";
 import Explore from "./pages/Explore";
 import Message from "./pages/Message";
 import PrivateRouter from "./utils/PrivateRouter";
+import Profile from "./pages/Profile";
 
 function App() {
   const {auth} = useSelector(state => state);
@@ -55,6 +56,9 @@ function App() {
           </PrivateRouter>
           <PrivateRouter exact path='/post/:id'>
             <Post/>
+          </PrivateRouter>
+          <PrivateRouter exact path='/profile/:id'>
+            <Profile/>
           </PrivateRouter>
           {/* Pagina en cado de no encontrarse ninguna.  */}
           <Route> <NotFound/> </Route> 
