@@ -16,7 +16,6 @@ export const login = (data) => async (dispatch) => {
 		})
 		const res = await postDataApi('login', data);
 		
-		localStorage.setItem('login', true);
 		
 		dispatch({
 			type: 'AUTH',
@@ -26,6 +25,7 @@ export const login = (data) => async (dispatch) => {
 			} 
 		})
 		
+		localStorage.setItem('login', true);
 
 		dispatch({
 			type: ALERT_TYPES.ALERT,

@@ -13,10 +13,11 @@
 		justify-content: center;
 		margin-left: 1rem;
 
-		&--fullname {
+		&--networks {
 			font-size: font-size(font-size-medium);
 			text-transform: uppercase;
 			letter-spacing: 1.2px;
+			color: var(--color-primary);
 		}
 	}
 
@@ -57,7 +58,12 @@
 
 			&__user {
 				margin-left: 1rem;
+				color: var(--color-primary);
 			}
 		}
+	}
+
+	&__active {
+		color: white;
 	}
 }
