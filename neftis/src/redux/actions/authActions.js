@@ -14,9 +14,8 @@ export const login = (data) => async (dispatch) => {
 				loading: true,
 			}
 		})
+		
 		const res = await postDataApi('login', data);
-		
-		
 		dispatch({
 			type: 'AUTH',
 			payload: {
@@ -30,7 +29,7 @@ export const login = (data) => async (dispatch) => {
 		dispatch({
 			type: ALERT_TYPES.ALERT,
 			payload: {
-				success:res.data.msg,
+				success:res.data.msg
 			}
 		})
 	} catch (error) {
@@ -99,7 +98,7 @@ export const register = (data) => async (dispatch) => {
 			} 
 		})
 		
-		localStorage.setItem('login', true);
+		// localStorage.setItem('login', true);
 
 		dispatch({
 			type: ALERT_TYPES.ALERT,
