@@ -14,6 +14,7 @@ import { refreshToken } from './redux/actions/authActions';
 import Notifications from "./pages/Notifications";
 import Explore from "./pages/Explore";
 import Message from "./pages/Message";
+import PrivateRouter from "./utils/PrivateRouter";
 
 function App() {
   const {auth} = useSelector(state => state);
@@ -41,19 +42,20 @@ function App() {
           </Route>
           <Route exact path="/login">
             <Login/>
+          <PrivateRouter/>
           </Route>
-          <Route exact path="/message">
+          <PrivateRouter exact path="/message">
             <Message/>
-          </Route>
-          <Route exact path="/explore">
+          </PrivateRouter>
+          <PrivateRouter exact path="/explore">
             <Explore/>
-          </Route>
-          <Route exact path="/notification">
+          </PrivateRouter>
+          <PrivateRouter exact path="/notification">
             <Notifications/>
-          </Route>
-          <Route exact path='/post/:id'>
+          </PrivateRouter>
+          <PrivateRouter exact path='/post/:id'>
             <Post/>
-          </Route>
+          </PrivateRouter>
           {/* Pagina en cado de no encontrarse ninguna.  */}
           <Route> <NotFound/> </Route> 
         </Switch>
