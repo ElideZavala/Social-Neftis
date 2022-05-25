@@ -1,0 +1,28 @@
+.userCard {
+	display: flex;
+	padding: 2px;
+	align-items: center;
+	margin: .3rem .2rem;
+	background-color: var(--color-quaternary-m);
+	border-radius: 5px;
+	// @extend %difuminado;
+
+	&__avatar {
+		margin-left: .3rem;
+	}
+
+  	&__text {
+		color: var(--color-primary);
+		font-weight: 550;
+		padding: 2px;
+		
+		&--fullname {
+			display: block;
+		}
+
+		&--username {
+			display: block;
+			color: var(--color-secondary);
+		}
+	}
+}

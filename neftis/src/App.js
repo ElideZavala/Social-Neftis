@@ -26,11 +26,11 @@ function App() {
   },[dispatch])
 
   return (
-    <div className="App dark"> {/* Colocar el thema dark o light*/}
+    <div className="App light"> {/* Colocar el thema dark o light*/}
       <Router>
         <Alert/>
-        { auth.token && <Header/>}
         {/* <Header/>  */}
+        { auth.token && <Header/>}
         <Switch>
           {/* // Nombre de la ruta se llamada register. */}
           <Route exact path="/register"> 
@@ -39,6 +39,7 @@ function App() {
           </Route>
           <Route exact path="/">
             {auth.token ? <Home/> : <Login/>}
+            {/* {<Home/>} */}
             {/* {auth.token ? <Login/> : <Home/>}  */}
           </Route>
           <Route exact path="/login">

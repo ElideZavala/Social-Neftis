@@ -32,6 +32,7 @@ export const login = (data) => async (dispatch) => {
 				success:res.data.msg
 			}
 		})
+
 	} catch (error) {
 		console.log(error.response.data.msg)
 		dispatch({

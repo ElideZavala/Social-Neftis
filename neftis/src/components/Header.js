@@ -13,6 +13,7 @@ import MessageIcon from "@material-ui/icons/Message";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import SearchIcon from "@material-ui/icons/Search";
 import ExitToAAppIcon from "@material-ui/icons/ExitToApp";
+import UserCard from "./UserCard";
 
 /* Header */
 export const Header = () => {
@@ -55,10 +56,21 @@ export const Header = () => {
 				<IconButton>
 					<SearchIcon/>
 				</IconButton>
+				<span className="header__center--close">&times;</span>
+
+				<div className="header__center--searchers">
+					{
+						users.length > 0 && users.map(user => (
+							<Link to={`profile/${user._id}`} key={user._id}>
+								<UserCard user={user}/>
+							</Link>
+						)) 
+					}
+				</div>
 			</form>
 
 			<nav className="header__left">
-				<Link className="header__left--avatar" to={`profile/${auth.user._id}`}> 
+				<Link to={`profile/${auth.user._id}`} className="header__left--avatar" > 
 						<div className="header__left--avatar">
 						<Avatar src={auth.user.avatar}/>
 						<h3 className="header__left--avatar__user">{auth.user.fullname}</h3>
