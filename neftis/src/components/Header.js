@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { logout } from '../redux/actions/authActions';
+import { getDataApi } from '../utils/fetchDataApi';
 
 /* Icons of Material UI */
+import { Avatar } from '@material-ui/core';
 import IconButton from "@material-ui/core/IconButton";
 import HomeIcon from "@material-ui/icons/Home"
 import ExploreIcon from "@material-ui/icons/Explore"
@@ -11,19 +13,36 @@ import MessageIcon from "@material-ui/icons/Message";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import SearchIcon from "@material-ui/icons/Search";
 import ExitToAAppIcon from "@material-ui/icons/ExitToApp";
-import { Avatar } from '@material-ui/core';
 
 /* Header */
 export const Header = () => {
 	const [ search, setSearch ] = useState('');
+	const [ users, setUsers ] = useState([]);
 	const dispatch = useDispatch();
 	const { auth } = useSelector(state=>state);
 	const { pathname } = useLocation(); // Estraemos pathname del objeto traido por useLocation. 
+
+	/* Busqueda al momento */
+	useEffect(() =>{
+		if(search && auth.token) {
+			getDataApi(`search?username=${search}`, auth.token)
+			.then(res => setUsers(res.data.users))
+			.catch(err => {
+				dispatch({
+					type: 'ALERT',
+					payload: {
+						error: err.response.data.msg
+					}
+				})
+			})
+		}
+	},[search, auth.token, dispatch]);
 
 	const isActive = (pn) => {
 		if(pn === pathname) return 'header__active'
 	}
 
+	/* DOM Header */
 	return ( 
 		<div className="header">
 			<div className="header__right">

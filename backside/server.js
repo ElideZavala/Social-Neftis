@@ -4,6 +4,7 @@ const mongoose = require('mongoose'); // Requeriremos de nuetra base de datos.
 const cors = require('cors'); // Acceso a recursos seleccionados de un origen diferente.
 const cookieparser = require('cookie-parser');
 const authRouter = require('./routers/authRouter')
+const userRouter = require('./routers/userRouter')
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cookieparser()); // Tube un error con ()
 
 // routes
 app.use('/api', authRouter)
+app.use('/api', userRouter)
 
 // Now Open Postman . ... .. 
 

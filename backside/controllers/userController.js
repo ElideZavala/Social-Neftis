@@ -3,11 +3,11 @@ const Users = require("../models/userModel");
 const userController = {
 	searchUser: async (req, res) => {
 		try {
-			const users = Users.find({username: {$regex: req.query.username}}).limit(10).select("").select("fullname username avatar")
+			const users = await Users.find({username: {$regex: req.query.username}}).limit(10).select("").select("fullname username avatar")
 
 			res.json({users})
 		} catch (err) {
-			return res.status(500).json({err: err.message})			
+			return res.status(500).json({msg: err.message})			
 		}
 	}
  }
