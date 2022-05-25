@@ -43,6 +43,11 @@ export const Header = () => {
 		if(pn === pathname) return 'header__active'
 	}
 
+	const handleClose = () => {
+		setSearch('');
+		setUsers([]);
+	}
+
 	/* DOM Header */
 	return ( 
 		<div className="header">
@@ -56,7 +61,7 @@ export const Header = () => {
 				<IconButton>
 					<SearchIcon/>
 				</IconButton>
-				<span className="header__center--close">&times;</span>
+				<span className="header__center--close" onClick={handleClose}>&times;</span>
 
 				<div className="header__center--searchers">
 					{
