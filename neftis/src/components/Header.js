@@ -36,6 +36,8 @@ export const Header = () => {
 					}
 				})
 			})
+		} else {
+			setUsers([])
 		}
 	},[search, auth.token, dispatch]);
 
@@ -59,13 +61,14 @@ export const Header = () => {
 				<input type="text" placeholder="Search Profiles" value={ search } onChange={(e)=>setSearch(e.target.value)}/>
 
 				<IconButton>
-					<SearchIcon/>
+					<SearchIcon style={{opacity: users.length > 0 ? '0' : '1'}} />
+					<span className="header__center--close" onClick={handleClose} style={{opacity: users.length > 0 ? '1' : '0'}}>&times;</span>
 				</IconButton>
-				<span className="header__center--close" onClick={handleClose}>&times;</span>
 
+				{/* Seccion de busqueda por fullname */}
 				<div className="header__center--searchers">
 					{
-						users.length > 0 && users.map(user => (
+						search && users.length > 0 && users.map(user => (
 							<Link to={`profile/${user._id}`} key={user._id}>
 								<UserCard user={user}/>
 							</Link>

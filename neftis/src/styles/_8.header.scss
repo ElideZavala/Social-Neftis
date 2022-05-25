@@ -61,7 +61,19 @@
 			text-indent: 10px;
 
 		}
+
+		.MuiSvgIcon-root {
+			position: relative;
+		}
 		
+		&--close {
+			position: absolute;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: font-size(font-size-large);
+			cursor: pointer;
+		}
 	}
 
 	&__left {
