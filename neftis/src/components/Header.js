@@ -85,16 +85,14 @@ export const Header = () => {
 					<SearchIcon style={{opacity: users.length > 0 ? '0' : '1'}} />
 					<span className="header__center--close" onClick={handleClose} style={{opacity: users.length > 0 ? '1' : '0'}}>&times;</span>
 				</IconButton>
-				<button type="submit" className="">Search</button>
+				<button type="submit" className="header__center--button">Search</button>
 
 				{/* Seccion de busqueda por fullname */}
 				<div className="header__center--searchers">
 					{load && <SearchLoading/> }
 					{
 						search && users.length > 0 && users.map(user => (
-							<Link to={`profile/${user._id}`} key={user._id}>
-								<UserCard user={user}/>
-							</Link>
+								<UserCard user={user} key={user._id} handleClose={handleClose}/>
 						)) 
 					}
 				</div>

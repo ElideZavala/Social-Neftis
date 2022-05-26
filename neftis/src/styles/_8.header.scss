@@ -74,6 +74,10 @@
 			font-size: font-size(font-size-large);
 			cursor: pointer;
 		}
+
+		&--button {
+			// display: none;
+		}
 	}
 
 	&__left {
