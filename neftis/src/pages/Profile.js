@@ -2,8 +2,9 @@ import React from 'react'
 
 const Profile = () => {
 	return ( 
-		<div>
-			<h3 className="profile">Profiles</h3>
+		<div className="profile">
+			<Info/>
+			<Post/>
 		</div>
 	);
 }

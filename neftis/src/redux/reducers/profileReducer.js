@@ -8,7 +8,7 @@ const initialState = {
 
 export const profileReducer = (state = initialState, action) => {
 	switch(action.type) {
-		case PROFILE_TYPES.lOADING: 
+		case PROFILE_TYPES.LOADING: 
 			return {
 				...state,
 				loading: action.payload
@@ -19,5 +19,9 @@ export const profileReducer = (state = initialState, action) => {
 				users: [...state.users, action.payload.user]
 			}
 		default: return state;
+
+
 	}
 }
+
+export default profileReducer;
