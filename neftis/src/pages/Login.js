@@ -17,7 +17,7 @@ const Login = () => {
 		if(auth.token) {
 			history.push('/')
 		}
-	})
+	},[auth.token, history]);
 
 	const {email, password} = userData; 
  
@@ -30,6 +30,7 @@ const Login = () => {
 	// Cuando demos Submit a nuestro form. 
 	const handleSubmit = (e) => {
 		e.preventDefault()
+		// setUserData({email, password})
 		dispatch(login(userData))
 	}
 

@@ -29,17 +29,13 @@ function App() {
     <div className="App light"> {/* Colocar el thema dark o light*/}
       <Router>
         <Alert/>
-        {/* <Header/>  */}
         { auth.token && <Header/>}
         <Switch>
-          {/* // Nombre de la ruta se llamada register. */}
           <Route exact path="/register"> 
-          {/* // Nuestra pagina register. */}
             <Register />
           </Route>
           <Route exact path="/">
             {auth.token ? <Home/> : <Login/>}
-            {/* {<Home/>} */}
             {/* {auth.token ? <Login/> : <Home/>}  */}
           </Route>
           <Route exact path="/login">

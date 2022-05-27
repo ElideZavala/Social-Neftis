@@ -75,13 +75,16 @@ const authController = {
 
 			const access_token = createAccessToken({id: user._id}) 
 			const refresh_token = createrRefreshToken({id: user._id}) 
+			// console.log(refresh_token);
 
 			// Creamos los cookie con nuestro token.
 			res.cookie('refreshtoken', refresh_token, {
 				httpOnly: true,
 				path: "/api/refresh_token", // Direccion de nuestro Cookie
 				maxAge: 24*30*60*60*1000 // Duracion de cookie. ==> 30 Days. 
-			})
+			})	
+
+			console.log(res);
 
 			res.json({
 				msg: "login success",
@@ -117,7 +120,7 @@ const authController = {
 			if(!rf_token) return res.status(400).json({msg: "please login now"});
 
 			jwt.verify(rf_token, process.env.REFRESHTOKENSECRET, async(err, result) => {
-				if(err) return es.status(400).json({msg:"Please login now"})
+				if(err) return res.status(400).json({msg:"Please login now"})
 
 				// Traremos a nuestro usuario sin la contraseña mas los Amigos + seguidores. 
 				const user = await Users.findById(result.id).select("-password").populate("friends following")

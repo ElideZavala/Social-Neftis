@@ -21,20 +21,19 @@ export const login = (data) => async (dispatch) => {
 			payload: {
 				token: res.data.access_token,
 				user: res.data.user,
-			} 
+			}
 		})
-		
+
 		localStorage.setItem('login', true);
 
 		dispatch({
 			type: ALERT_TYPES.ALERT,
 			payload: {
-				success:res.data.msg
+				success: res.data.msg
 			}
 		})
 
 	} catch (error) {
-		console.log(error.response.data.msg)
 		dispatch({
 			type: ALERT_TYPES.ALERT,
 			payload: {
@@ -46,6 +45,7 @@ export const login = (data) => async (dispatch) => {
 
 export const refreshToken = () => async( dispatch ) => {
 	const login = localStorage.getItem('login')
+	
 	if(login){
 		dispatch({
 			type: 'ALERT',
@@ -63,7 +63,7 @@ export const refreshToken = () => async( dispatch ) => {
 					user: res.data.user
 				}
 			})
-
+			
 			dispatch({
 				type: ALERT_TYPES.ALERT,
 				payload: {
@@ -98,8 +98,6 @@ export const register = (data) => async (dispatch) => {
 				user: res.data.user
 			} 
 		})
-		
-		localStorage.setItem('login', true);
 
 		dispatch({
 			type: ALERT_TYPES.ALERT,
@@ -109,7 +107,6 @@ export const register = (data) => async (dispatch) => {
 		})
 
 	} catch (error) {
-		console.log(error);
 		dispatch({
 			type: "ALERT",
 			payload: {
@@ -125,7 +122,6 @@ export const logout = () => async (dispatch) => {
 		await postDataApi('logout');
 		window.location.href="/";
 	} catch (error) {
-		console.log(error);
 		dispatch({
 			type: "ALERT",
 			payload: {

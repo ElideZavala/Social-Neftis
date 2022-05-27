@@ -8,7 +8,7 @@ const UserCard = ({user, handleClose}) => {
 	}
 
 	return ( 
-		<div className={`${user == '' ? "userCard__none" : "userCard"}`}>
+		<div className={`${user === '' ? "userCard__none" : "userCard"}`}>
 			<div className="userCard__profile">
 				{/* Enlace al perfil del usuario */}
 				<Link to={`/profile/${user._id}`} onClick={handleCloseAll} className="userCard__profile--link">
