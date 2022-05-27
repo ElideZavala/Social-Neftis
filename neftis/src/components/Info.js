@@ -9,18 +9,23 @@ const Info = () => {
 	const {auth} = useSelector(state => state)
 	const dispatch = useDispatch();
 
-	console.log(useParams())
-
+	// Al principio, la tienda redux no está definida. tomará tiempo
 	useEffect(() => { 
-		if(id === auth.user._id) {
+		if( auth && auth.user && id === auth.user._id) {
 			setUserData(auth.user)
 		}
-	} , [id, auth])
+	} , [id, auth.user, auth])
 	console.log(userData)
 
 	return ( 
 		<div className="profileInfo">
-			<h2>Info - {id}</h2>
+			{userData.length > 0 && userData.map((user => (
+				<div className='profileInfo__container' key={user._id}>
+					<div className='profileInfo__container--top'>
+						<img src={user.avatar} alt="avatar" className='profileInfo__container--top__avatar'/>
+					</div>
+				</div>
+			)))}
 		</div>
 	);
 }

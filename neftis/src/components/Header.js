@@ -22,7 +22,7 @@ export const Header = () => {
 	const [ search, setSearch ] = useState('');
 	const [ users, setUsers ] = useState([]);
 	const dispatch = useDispatch();
-	const { auth } = useSelector(state=>state);
+	const { auth } = useSelector(state => state);
 	const { pathname } = useLocation(); // Estraemos pathname del objeto traido por useLocation. 
 	const [load, setLoad] = useState(false);
 

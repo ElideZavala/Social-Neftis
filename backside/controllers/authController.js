@@ -118,7 +118,7 @@ const authController = {
 			// Si no encotramos el token // Verificar si no existe ningun error.+
 			
 			if(!rf_token) return res.status(400).json({msg: "please login now"});
-
+			
 			jwt.verify(rf_token, process.env.REFRESHTOKENSECRET, async(err, result) => {
 				if(err) return res.status(400).json({msg:"Please login now"})
 
