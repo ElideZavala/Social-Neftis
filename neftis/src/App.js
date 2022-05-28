@@ -36,7 +36,6 @@ function App() {
           </Route>
           <Route exact path="/">
             {auth.token ? <Home/> : <Login/>}
-            {/* {auth.token ? <Login/> : <Home/>}  */}
           </Route>
           <Route exact path="/login">
             <Login/>

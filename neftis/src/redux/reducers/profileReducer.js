@@ -18,9 +18,8 @@ export const profileReducer = (state = initialState, action) => {
 				...state,
 				users: [...state.users, action.payload.user]
 			}
-		default: return state;
-
-
+		default: 
+			return state;
 	}
 }
 

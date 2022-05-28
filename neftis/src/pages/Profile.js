@@ -6,7 +6,7 @@ const Profile = () => {
 	return ( 
 		<div className="profile">
 			<Info/>
-			<Posts/>
+			{/* <Posts/> */}
 		</div>
 	);
 }

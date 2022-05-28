@@ -1,4 +1,4 @@
-import axios from './axios';
+import axios from 'axios';
 
 export const getDataApi = async (url, token) => {
 	const res = await axios.get(`/api/${url}`, {
@@ -11,7 +11,6 @@ export const postDataApi = async (url, post, token) => {
 	const res = await axios.post(`/api/${url}`, post , {
 		headers: { Authorization: token }
 	})
-	console.log(res)
 	return res;
 }
 

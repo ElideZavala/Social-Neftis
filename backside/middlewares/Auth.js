@@ -12,7 +12,8 @@ const auth = (req, res, next) => {
 		if(!decoded) return res.status(500).json({msg: "Not Valid"}); 
 
 		const user = Users.findOne({_id: decoded.id})
-		req.user = user;
+		
+		res.user = user;
 		next();
 
 	} catch (err) {

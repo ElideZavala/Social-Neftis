@@ -27,22 +27,22 @@ export const Header = () => {
 	const [load, setLoad] = useState(false);
 
 	/* Busqueda al momento */
-	useEffect(() =>{
-		if(search && auth.token) {
-			getDataApi(`search?username=${search}`, auth.token)
-			.then(res => setUsers(res.data.users))
-			.catch(err => {
-				dispatch({
-					type: 'ALERT',
-					payload: {
-						error: err.response.data.msg
-					}
-				})
-			})
-		} else {
-			setUsers([])
-		}
-	},[search, auth.token, dispatch]);
+	// useEffect(() =>{
+	// 	if(search && auth.token) {
+	// 		getDataApi(`search?username=${search}`, auth.token)
+	// 		.then(res => setUsers(res.data.users))
+	// 		.catch(err => {
+	// 			dispatch({
+	// 				type: 'ALERT',
+	// 				payload: {
+	// 					error: err.response.data.msg
+	// 				}
+	// 			})
+	// 		})
+	// 	} else {
+	// 		setUsers([])
+	// 	}
+	// },[search, auth.token, dispatch]);
 
 	const isActive = (pn) => {
 		if(pn === pathname) return 'header__active'
@@ -106,24 +106,28 @@ export const Header = () => {
 						</div>	
 				</Link>
 				
-				<IconButton>
-					<HomeIcon className={`${isActive('/')}`}/>
-				</IconButton>
+				<Link to="/">
+					<IconButton>
+						<HomeIcon className={`${isActive('/')}`}/>
+					</IconButton>
+				</Link>
 
 				<Link to="/message">
-				<IconButton>
-					<MessageIcon className={`${isActive('/message')}`}/>
-				</IconButton>
+					<IconButton>
+						<MessageIcon className={`${isActive('/message')}`}/>
+					</IconButton>
 				</Link>
+
 				<Link to="/notification">
-				<IconButton>
-					<NotificationsIcon className={`${isActive('/notification')}`}/>
-				</IconButton>
+					<IconButton>
+						<NotificationsIcon className={`${isActive('/notification')}`}/>
+					</IconButton>
 				</Link>
+				
 				<Link to="/explore">
-				<IconButton>
-					<ExploreIcon className={`${isActive('/explore')}`}/>
-				</IconButton>
+					<IconButton>
+						<ExploreIcon className={`${isActive('/explore')}`}/>
+					</IconButton>
 				</Link>
 
 				<IconButton onClick={()=> dispatch(logout())}>

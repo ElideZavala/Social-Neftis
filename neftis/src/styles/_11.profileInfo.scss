@@ -1,0 +1,51 @@
+.profileInfo {
+	min-height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+//   background-image: radial-gradient(circle at 0% 0%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+  background-color: var(--color-quinary-m);
+	// animation: 2s linear 0s infinite alternate-reverse background;
+
+	@keyframes background {
+		10% {
+			background-image: radial-gradient(circle at 0% 0%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+		20% {
+			background-image: radial-gradient(circle at 9.64% -7.24%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+
+		30% {
+			background-image: radial-gradient(circle at 12.12% -9.09%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);;
+		}
+
+		40% {
+			background-image: radial-gradient(circle at 15.82% -14.45%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+
+		50% {
+			background-image: radial-gradient(circle at 18.72% -19.64%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+
+		60% {
+			background-image: radial-gradient(circle at 21.84% -17.44%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+
+		70% {
+			background-image: radial-gradient(circle at 24% -20.71%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+
+		80% {
+			background-image: radial-gradient(circle at 27.28% -23.64%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+
+		90% {
+			background-image: radial-gradient(circle at 30.3% -26.3%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+
+		100% {
+			background-image: radial-gradient(circle at 33.18% -29.45%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
+		}
+	}
+}

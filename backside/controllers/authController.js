@@ -114,26 +114,27 @@ const authController = {
 	},
 	generateAccessToken: async (req, res) => {
 		try {
-			const rf_token = req.cookies.refreshtoken;
+			const rfToken = req.cookies.refreshtoken;
 			// Si no encotramos el token // Verificar si no existe ningun error.+
 			
-			if(!rf_token) return res.status(400).json({msg: "please login now"});
+			if(!rfToken) return res.status(400).json({msg: "please login now"});
 			
-			jwt.verify(rf_token, process.env.REFRESHTOKENSECRET, async(err, result) => {
+			jwt.verify(rfToken, process.env.REFRESHTOKENSECRET, async(err, result) => {
 				if(err) return res.status(400).json({msg:"Please login now"})
 
 				// Traremos a nuestro usuario sin la contraseña mas los Amigos + seguidores. 
 				const user = await Users.findById(result.id).select("-password").populate("friends following")
-
 				if(!user) return res.status(400).json({msg: "user does not exist"})
 
 				// Creamos nuestro acceso con el ID. 
 				const access_token = createAccessToken({id: result.id })
 				
-				res.status(200).json({
+				res.json({
 					access_token,
 					user
 				})
+
+				console.log(res);
 			})
 		} catch (err) {
 			res.status(500).json({

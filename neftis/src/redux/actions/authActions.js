@@ -70,6 +70,7 @@ export const refreshToken = () => async( dispatch ) => {
 					success:res.data.msg
 				}
 			})
+
 		} catch (error) {
 			dispatch({
 				type: 'ALERT',
@@ -90,7 +91,8 @@ export const register = (data) => async (dispatch) => {
 		dispatch({type: "ALERT", payload: {loading: true}})
 
 		const res = await postDataApi('register', data);
-		
+		localStorage.setItem('login', true);
+
 		dispatch({
 			type: 'AUTH',
 			payload: {

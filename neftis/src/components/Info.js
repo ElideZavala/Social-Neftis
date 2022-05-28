@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { Avatar } from '@material-ui/core';
+import  Avatar  from '@material-ui/core/Avatar';
 
 const Info = () => {
 	
@@ -9,6 +9,9 @@ const Info = () => {
 	const { id } = useParams();
 	const {auth} = useSelector(state => state)
 	const dispatch = useDispatch();
+
+	console.log(id);
+	console.log(auth);
 
 	// Al principio, la tienda redux no está definida. tomará tiempo
 	useEffect(() => { 
@@ -21,7 +24,8 @@ const Info = () => {
 	return ( 
 		<div className="profileInfo">
 			{console.log(userData)}
-			{userData.length > 0 && userData.map((user => (
+			{ userData.length > 0 && userData.map((user => (
+
 				<div className='profileInfo__container' key={user._id}>
 					<div className='profileInfo__container--top'>
 						<img src={user.avatar} alt="avatar" className='profileInfo__container--top__avatar'/>
