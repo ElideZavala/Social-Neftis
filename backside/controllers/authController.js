@@ -75,7 +75,6 @@ const authController = {
 
 			const access_token = createAccessToken({id: user._id}) 
 			const refresh_token = createrRefreshToken({id: user._id}) 
-			// console.log(refresh_token);
 
 			// Creamos los cookie con nuestro token.
 			res.cookie('refreshtoken', refresh_token, {
@@ -83,8 +82,6 @@ const authController = {
 				path: "/api/refresh_token", // Direccion de nuestro Cookie
 				maxAge: 24*30*60*60*1000 // Duracion de cookie. ==> 30 Days. 
 			})	
-
-			console.log(res);
 
 			res.json({
 				msg: "login success",
@@ -133,8 +130,6 @@ const authController = {
 					access_token,
 					user
 				})
-
-				console.log(res);
 			})
 		} catch (err) {
 			res.status(500).json({

@@ -27,22 +27,22 @@ export const Header = () => {
 	const [load, setLoad] = useState(false);
 
 	/* Busqueda al momento */
-	// useEffect(() =>{
-	// 	if(search && auth.token) {
-	// 		getDataApi(`search?username=${search}`, auth.token)
-	// 		.then(res => setUsers(res.data.users))
-	// 		.catch(err => {
-	// 			dispatch({
-	// 				type: 'ALERT',
-	// 				payload: {
-	// 					error: err.response.data.msg
-	// 				}
-	// 			})
-	// 		})
-	// 	} else {
-	// 		setUsers([])
-	// 	}
-	// },[search, auth.token, dispatch]);
+	useEffect(() =>{
+		if(search && auth.token) {
+			getDataApi(`search?username=${search}`, auth.token)
+			.then(res => setUsers(res.data.users))
+			.catch(err => {
+				dispatch({
+					type: 'ALERT',
+					payload: {
+						error: err.response.data.msg
+					}
+				})
+			})
+		} else {
+			setUsers([])
+		}
+	},[search, auth.token, dispatch]);
 
 	const isActive = (pn) => {
 		if(pn === pathname) return 'header__active'

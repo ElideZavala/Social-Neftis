@@ -4,26 +4,25 @@ import { useSelector, useDispatch } from 'react-redux';
 import  Avatar  from '@material-ui/core/Avatar';
 
 const Info = () => {
+
+	console.log(useParams())
 	
 	const [userData, setUserData] = useState([])
 	const { id } = useParams();
 	const {auth} = useSelector(state => state)
 	const dispatch = useDispatch();
-
-	console.log(id);
-	console.log(auth);
+	console.log(id)
 
 	// Al principio, la tienda redux no está definida. tomará tiempo
 	useEffect(() => { 
 		if( auth && auth.user && id === auth.user._id) {
 			setUserData([auth.user])
 		}
-	} , [id, auth.user, auth])
-	
+		console.log({userData})
+	} , [id, auth.user, auth]);
 
 	return ( 
 		<div className="profileInfo">
-			{console.log(userData)}
 			{ userData.length > 0 && userData.map((user => (
 
 				<div className='profileInfo__container' key={user._id}>
