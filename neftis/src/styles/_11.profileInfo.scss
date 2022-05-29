@@ -48,4 +48,30 @@
 			background-image: radial-gradient(circle at 33.18% -29.45%, var(--color-quinary) 50%, var(--color-tertiary) 75%, var(--color-secondary) 100%);
 		}
 	}
+
+	&__container {
+		display: flex;
+  		align-items: center;
+		flex-flow: column wrap;
+  		justify-content: center;
+
+		  &--top {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				&__avatar {
+					display: flex;
+					width: 100vw;
+					height: 40vh;
+					background-size: cover;
+					background-repeat: no-repeat;
+					background-attachment: fixed;
+				}
+		  }
+		  
+		&--center {
+			display: flex;
+		}
+	}
 }
