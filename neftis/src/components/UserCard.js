@@ -11,7 +11,7 @@ const UserCard = ({user, handleClose}) => {
 		<div className="userCard">
 			<div className="userCard__profile">
 				{/* Enlace al perfil del usuario */}
-				<Link to={`profile/${user._id}`} onClick={handleCloseAll} className="userCard__profile--link">
+				<Link to={`/profile/${user._id}`} onClick={handleCloseAll} className="userCard__profile--link">
 					<Avatar className="userCard__profile--link__avatar" src={user.avatar}/>
 					<div className="userCard__profile--link__text">
 						<span className="userCard__profile--link__text--fullname">{user.fullname}</span>

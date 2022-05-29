@@ -44,6 +44,7 @@ export const Header = () => {
 		}
 	},[search, auth.token, dispatch]);
 
+
 	const isActive = (pn) => {
 		if(pn === pathname) return 'header__active'
 	}
@@ -80,7 +81,7 @@ export const Header = () => {
 			</div>
 
 			<form className="header__center" onSubmit={handleSearch}>
-				<input type="text" placeholder="Search Profiles" value={ search } onChange={(e)=>setSearch(e.target.value)}/>
+				<input type="text" placeholder="Search Profiles" value={search} onChange={(e)=>setSearch(e.target.value)}/>
 				<IconButton>
 					<SearchIcon style={{opacity: users.length > 0 ? '0' : '1'}} />
 					<span className="header__center--close" onClick={handleClose} style={{opacity: users.length > 0 ? '1' : '0'}}>&times;</span>
@@ -98,7 +99,7 @@ export const Header = () => {
 				</div>
 			</form>
 
-			<nav className="header__left">
+			<div className="header__left">
 				<Link to={`profile/${auth.user._id}`} className="header__left--avatar" > 
 						<div className="header__left--avatar">
 						<Avatar src={auth.user.avatar}/>
@@ -133,7 +134,7 @@ export const Header = () => {
 				<IconButton onClick={()=> dispatch(logout())}>
 					<ExitToAAppIcon/>
 				</IconButton>
-			</nav>
+			</div>
 		</div>
 	 )
 }

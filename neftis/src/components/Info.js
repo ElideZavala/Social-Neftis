@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import  Avatar  from '@material-ui/core/Avatar';
+import { useParams } from "react-router-dom";
+import  wallpaper  from "../images/avatar/banner.png";
 
 const Info = () => {
-
-	console.log(useParams())
 	
+	console.log(useParams())
 	const [userData, setUserData] = useState([])
 	const { id } = useParams();
 	const {auth} = useSelector(state => state)
 	const dispatch = useDispatch();
-	console.log(id)
 
 	// Al principio, la tienda redux no está definida. tomará tiempo
 	useEffect(() => { 
-		if( auth && auth.user && id === auth.user._id) {
+		if( auth && auth.user && id === auth.user.id) {
 			setUserData([auth.user])
 		}
-		console.log({userData})
 	} , [id, auth.user, auth]);
 
 	return ( 
@@ -27,7 +25,7 @@ const Info = () => {
 
 				<div className='profileInfo__container' key={user._id}>
 					<div className='profileInfo__container--top'>
-						<img src={user.avatar} alt="avatar" className='profileInfo__container--top__avatar'/>
+						<img src={wallpaper} alt="avatar" className='profileInfo__container--top__avatar'/>
 					</div>
 					<div className="profileInfo__container--center">
 						<Avatar src={user.avatar} className='profileInfo__container--center__avatar'/>

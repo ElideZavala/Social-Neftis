@@ -6,19 +6,19 @@ const initialState = {
 	posts: []
 }
 
-export const profileReducer = (state = initialState, action) => {
+export const profileReducer = (state=initialState, action) => {
 	switch(action.type) {
 		case PROFILE_TYPES.LOADING: 
 			return {
 				...state,
-				loading: action.payload
+				lloadingoading:action.payload
 			}
 		case PROFILE_TYPES.GET_USER:
 			return {
 				...state,
-				users: [...state.users, action.payload.user]
+				users:[...state.users, action.payload.user]
 			}
-		default: 
+		default:
 			return state;
 	}
 }

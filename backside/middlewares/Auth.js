@@ -1,7 +1,7 @@
 const Users = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 
-const auth = (req, res, next) => {
+const auth = async (req, res, next) => {
 	try {
 		const token = req.header("Authorization")
 
@@ -11,13 +11,15 @@ const auth = (req, res, next) => {
 
 		if(!decoded) return res.status(500).json({msg: "Not Valid"}); 
 
-		const user = Users.findOne({_id: decoded.id})
-		
+		const user = await Users.findOne({_id: decoded.id})
+
 		res.user = user;
+
 		next();
 		
 	} catch (err) {
 		return res.status(500).json({msg: err.message});
+
 	}
 }
 

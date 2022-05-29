@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const auth = require('../middlewares/auth');
+
 const { searchUser, getUser } = require('../controllers/userController');
 
 // Creamaos la ruta search 

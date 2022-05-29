@@ -6,5 +6,5 @@ import profile from './profileReducer'
 export default combineReducers({
 	auth,
 	alert,
-	profile
+	profile,
 })
