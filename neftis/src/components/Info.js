@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import  Avatar  from '@material-ui/core/Avatar';
 import { useParams } from "react-router-dom";
-import  wallpaper  from "../images/avatar/banner.png";
+import  wallpaper  from "../images/avatar/wallpaper.jpg";
+import  photo  from "../images/avatar/banner.png";
+import  perfileImg  from "../images/avatar/perfile.png";
+// import  gradiente  from "../images/avatar/gradiente.png";
+
+
 
 const Info = () => {
-	
-	console.log(useParams())
 	const [userData, setUserData] = useState([])
 	const { id } = useParams();
 	const {auth} = useSelector(state => state)
@@ -25,10 +28,11 @@ const Info = () => {
 
 				<div className='profileInfo__container' key={user._id}>
 					<div className='profileInfo__container--top'>
-						<img src={wallpaper} alt="avatar" className='profileInfo__container--top__avatar'/>
+						<img src={auth.avatar === '' ? photo : wallpaper } alt="avatar" className='profileInfo__container--top__avatar'/>
+						{/* <img src={wallpaper} alt="avatar" className='profileInfo__container--top__avatar'/> */}
 					</div>
 					<div className="profileInfo__container--center">
-						<Avatar src={user.avatar} className='profileInfo__container--center__avatar'/>
+						<img src={auth.avatar === '' ? photo : perfileImg } className="profileInfo__container--center__avatar" />
 						<button>ADD FRIEND</button>
 					</div>
 					<div className="profileInfo__container--bottom">
