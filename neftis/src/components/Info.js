@@ -37,19 +37,19 @@ const Info = () => {
 						<button>ADD FRIEND</button>
 					</div>
 					<div className="profileInfo__container--bottom">
-						<div className="profileInfo__container--bottom__left">
-							<div className="profileInfo__container--bottom__stat">
-								<h6 className="profileInfo__container--bottom__stat--number">{user.friends.length}</h6>
-								<h6 className="profileInfo__container--bottom__stat--desc">FRIENDS</h6>
-							</div>
-							<div className="profileInfo__container--bottom__stat">
-								<h6 className="profileInfo__container--bottom__stat--number">{user.following.length}</h6>
-								<h6 className="profileInfo__container--bottom__stat--desc">FOLLOWING</h6>
-							</div>
-						</div>
 						<div className="profileInfo__container--bottom__center">
 							<h3 className="profileInfo__container--bottom__center--fullname">{user.fullname}</h3>
 							<h5 className="profileInfo__container--bottom__center--username">{user.username}</h5>
+						</div>
+						<div className="profileInfo__container--bottom__left">
+							<div className="profileInfo__container--bottom__left">
+								<h6 className="profileInfo__container--bottom__left--number">{user.friends.length}</h6>
+								<h6 className="profileInfo__container--bottom__left--desc">FRIENDS</h6>
+							</div>
+							<div className="profileInfo__container--bottom__left">
+								<h6 className="profileInfo__container--bottom__left--number">{user.following.length}</h6>
+								<h6 className="profileInfo__container--bottom__left--desc">FOLLOWING</h6>
+							</div>
 						</div>
 					</div>
 				</div>

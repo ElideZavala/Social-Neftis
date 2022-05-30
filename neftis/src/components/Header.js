@@ -77,7 +77,7 @@ export const Header = () => {
 	return ( 
 		<div className="header">
 			<div className="header__right">
-				<h3 className="header__right--networks">Social Networks</h3>
+				<h3 className="header__right--networks">Social Neftis</h3>
 			</div>
 
 			<form className="header__center" onSubmit={handleSearch}>
