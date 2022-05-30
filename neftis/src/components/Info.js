@@ -32,7 +32,8 @@ const Info = () => {
 						{/* <img src={wallpaper} alt="avatar" className='profileInfo__container--top__avatar'/> */}
 					</div>
 					<div className="profileInfo__container--center">
-						<img src={auth.avatar === '' ? photo : perfileImg } className="profileInfo__container--center__avatar" />
+						{/* <img src={auth.avatar === '' ? photo : perfileImg } className="profileInfo__container--center__avatar" /> */}
+						<img src={photo} className="profileInfo__container--center__avatar" />
 						<button>ADD FRIEND</button>
 					</div>
 					<div className="profileInfo__container--bottom">
