@@ -14,6 +14,7 @@ const auth = async (req, res, next) => {
 		const user = await Users.findOne({_id: decoded.id})
 
 		res.user = user;
+		// res.json = ({user}); 
 
 		next();
 		

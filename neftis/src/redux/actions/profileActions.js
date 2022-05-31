@@ -1,4 +1,5 @@
 import { ALERT_TYPES } from "./alertActions";
+import { getDataApi } from "../../utils/fetchDataApi";
 
 export const PROFILE_TYPES = {
 	LOADING : 'LOADING',
@@ -6,5 +7,31 @@ export const PROFILE_TYPES = {
 }
 
 export const getProfileUsers = ({users, id, auth}) => async (dispatch) => {
-	console.log({users, id, auth});
+	if(users.every(user => user.id !== id)) {
+		try {
+			dispatch({
+				type: PROFILE_TYPES.LOADING, 
+				payload: {loading:true}
+			})
+
+			const res = await getDataApi(`user/${id}`, auth.token);
+
+			dispatch({
+				type: PROFILE_TYPES.GET_USER,
+				payload: res.data
+			})
+			dispatch({
+				type: PROFILE_TYPES.LOADING, 
+				payload: {loading:false}
+			})
+
+		} catch (err) {
+			dispatch({
+				type: 'ALERT',
+				payload: {
+					error: err.response.data.msg,
+				}
+			})
+		} 
+	}
 }

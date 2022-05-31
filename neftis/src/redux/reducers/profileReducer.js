@@ -11,7 +11,7 @@ export const profileReducer = (state=initialState, action) => {
 		case PROFILE_TYPES.LOADING: 
 			return {
 				...state,
-				lloadingoading:action.payload
+				loading: action.payload
 			}
 		case PROFILE_TYPES.GET_USER:
 			return {
