@@ -16,6 +16,7 @@ const Info = () => {
 	const { id } = useParams();
 	const { auth, profile } = useSelector(state => state)
 	const dispatch = useDispatch();
+	console.log(auth);
 
 	// Al principio, la tienda redux no está definida. tomará tiempo
 	useEffect(() => { 
@@ -23,6 +24,8 @@ const Info = () => {
 			setUserData([auth.user])
 		} else {
 			dispatch(getProfileUsers({users: profile.users, id, auth}))
+			const newData = profile.users.filter(user => user.id === id); // ==> Regresara un array 
+			setUserData(newData);  // ==> Este ya es un array
 		}
 	} , [id, auth.user, auth]);
 

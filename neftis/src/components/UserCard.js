@@ -6,7 +6,6 @@ const UserCard = ({user, handleClose}) => {
 	const handleCloseAll = () => {
 		if (handleClose) handleClose();
 	}
-
 	return ( 
 		<div className="userCard">
 			<div className="userCard__profile">

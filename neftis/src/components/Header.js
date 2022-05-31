@@ -93,7 +93,7 @@ export const Header = () => {
 					{load && <SearchLoading/> }
 					{
 						search && users.length > 0 && users.map(user => (
-								<UserCard user={user} key={user._id} handleClose={handleClose}/>
+							<UserCard user={user} key={user._id} handleClose={handleClose}/>
 						)) 
 					}
 				</div>
