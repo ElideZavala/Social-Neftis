@@ -81,6 +81,37 @@
 				background-attachment: fixed;
 				border: 10px solid var(--color-quinary);
 			}
+
+			&__add {
+				position: absolute;
+				padding: 0 1rem;
+				display: flex;
+				bottom: -8vw;
+				font-size: font-size(font-size-regular);
+				text-align: center;
+				border: none;
+				outline: none;
+				line-height: 3vh;
+				letter-spacing: 1.5px;
+				@extend %difuminado;
+				cursor: pointer;
+				color: var(--color-primary);
+				font-weight: 600;
+				transition: all 0.3s ease-in-out;
+
+				&:hover {
+					background-color: var(--color-quaternary-m);
+					color: var(--color-text);
+					box-shadow: 0 0 10px var(--color-quaternary-m);
+				}
+
+
+				span {
+					font-size: font-size(font-size-medium);
+					font-weight: 800;
+					margin-right: 0.8rem;
+				}
+			}
 		}
 
 		&--bottom {
@@ -97,6 +128,7 @@
 
 				&--fullname {
 					font-size: font-size(font-size-xlarge);
+					margin-top: 1.5rem;
 					letter-spacing: 2px;
 					color: var(--color-primary);
 				}
@@ -110,7 +142,7 @@
 
 			&__left {
 				display: flex;
-				margin: auto 6vw;
+				margin: auto 8vw;
 				font-size: font-size(font-size-medium);
 				font-family: 'Source Serif Pro', serif;
 				letter-spacing: 1.5px;

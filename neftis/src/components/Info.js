@@ -34,7 +34,7 @@ const Info = () => {
 					<div className="profileInfo__container--center">
 						{/* <img src={auth.avatar === '' ? photo : perfileImg } className="profileInfo__container--center__avatar" /> */}
 						<img src={photo} className="profileInfo__container--center__avatar" />
-						<button>ADD FRIEND</button>
+						<button className="profileInfo__container--center__add"><span>&#43;</span>FRIEND</button>
 					</div>
 					<div className="profileInfo__container--bottom">
 						<div className="profileInfo__container--bottom__center">
