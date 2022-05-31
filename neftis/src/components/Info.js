@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import  Avatar  from '@material-ui/core/Avatar';
 import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { getProfileUsers } from '../redux/actions/profileActions';
+
+// ===================  Photos =====================
 import  wallpaper  from "../images/avatar/wallpaper.jpg";
 import  photo  from "../images/avatar/banner.png";
-import  perfileImg  from "../images/avatar/perfile.png";
+// import  perfileImg  from "../images/avatar/perfile.png";
 // import  gradiente  from "../images/avatar/gradiente.png";
 
 
 
 const Info = () => {
-	const [userData, setUserData] = useState([])
+	const [ userData, setUserData ] = useState([])
 	const { id } = useParams();
-	const {auth} = useSelector(state => state)
+	const { auth, profile } = useSelector(state => state)
 	const dispatch = useDispatch();
 
 	// Al principio, la tienda redux no está definida. tomará tiempo
 	useEffect(() => { 
 		if( auth && auth.user && id === auth.user.id) {
 			setUserData([auth.user])
+		} else {
+			dispatch(getProfileUsers({users: profile.users, id, auth}))
 		}
 	} , [id, auth.user, auth]);
 

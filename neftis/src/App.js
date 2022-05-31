@@ -26,7 +26,7 @@ function App() {
   },[dispatch])
 
   return (
-    <div className="App dark"> {/* Colocar el thema dark o light*/}
+    <div className="App light"> {/* Colocar el thema dark o light*/}
       <Router>
         <Alert/>
         { auth.token && <Header/>}

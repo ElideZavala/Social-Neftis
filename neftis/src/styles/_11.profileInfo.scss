@@ -115,7 +115,8 @@
 		}
 
 		&--bottom {
-			padding: 12vh;
+			margin-top: 3.5rem;
+			padding: 6vh;
 			display: flex;
 			justify-content: center;
 			flex-direction: column;
@@ -142,8 +143,10 @@
 
 			&__left {
 				display: flex;
-				margin: auto 8vw;
-				font-size: font-size(font-size-medium);
+				align-items: center;
+				justify-content: center;
+				margin: auto 10vw;
+				font-size: font-size(font-size-large);
 				font-family: 'Source Serif Pro', serif;
 				letter-spacing: 1.5px;
 				color: var(--color-primary);
@@ -151,7 +154,12 @@
 
 				&--number,
 				&--desc {
-					margin: 0.5rem;
+					letter-spacing: 10px;
+				}
+				
+				&--number {
+					padding: .2vh 1vh;
+					margin-right: 0.5rem;
 				}
 			}
 		}
