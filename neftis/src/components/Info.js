@@ -9,25 +9,25 @@ import  photo  from "../images/avatar/banner.png";
 // import  perfileImg  from "../images/avatar/perfile.png";
 // import  gradiente  from "../images/avatar/gradiente.png";
 
+const [onEdit, setOnEdit] = useState(false); 
 
+const Info = ({userData, profile, auth, id }) => {
+	// const [ userData, setUserData ] = useState([])
+	// const { id } = useParams();
+	// const { auth, profile } = useSelector(state => state)
+	// const dispatch = useDispatch();
+	// console.log(auth);
 
-const Info = () => {
-	const [ userData, setUserData ] = useState([])
-	const { id } = useParams();
-	const { auth, profile } = useSelector(state => state)
-	const dispatch = useDispatch();
-	console.log(auth);
-
-	// Al principio, la tienda redux no está definida. tomará tiempo
-	useEffect(() => { 
-		if( auth && auth.user && id === auth.user.id) {
-			setUserData([auth.user])
-		} else {
-			dispatch(getProfileUsers({users: profile.users, id, auth}))
-			const newData = profile.users.filter(user => user.id === id); // ==> Regresara un array 
-			setUserData(newData);  // ==> Este ya es un array
-		}
-	} , [id, auth.user, auth]);
+	// // Al principio, la tienda redux no está definida. tomará tiempo
+	// useEffect(() => { 
+	// 	if( auth && auth.user && id === auth.user.id) {
+	// 		setUserData([auth.user])
+	// 	} else {
+	// 		dispatch(getProfileUsers({users: profile.users, id, auth}))
+	// 		const newData = profile.users.filter(user => user.id === id); // ==> Regresara un array 
+	// 		setUserData(newData);  // ==> Este ya es un array
+	// 	}
+	// } , [id, auth.user, auth, profile.users, dispatch]);
 
 	return ( 
 		<div className="profileInfo">
@@ -41,7 +41,7 @@ const Info = () => {
 					<div className="profileInfo__container--center">
 						{/* <img src={auth.avatar === '' ? photo : perfileImg } className="profileInfo__container--center__avatar" /> */}
 						<img src={photo} className="profileInfo__container--center__avatar" />
-						<button className="profileInfo__container--center__add"><span>&#43;</span>FRIEND</button>
+						<button className="profileInfo__container--center__add" onClick={() => setOnEdit(true)}><span>&#43;</span>EDIT PROFILE</button>
 					</div>
 					<div className="profileInfo__container--bottom">
 						<div className="profileInfo__container--bottom__center">
@@ -59,6 +59,9 @@ const Info = () => {
 							</div>
 						</div>
 					</div>
+					{
+						onEdit && <EditProfile user={user} />
+					}
 				</div>
 			)))}
 		</div>
