@@ -39,6 +39,10 @@ const About = ({userData, profile, auth, id }) => {
 							<h5 className='about__container--bottom__info--title'> Website </h5>
 							<p> {user.website} </p>
 						</div>
+						<div className='about__container--bottom__info'>
+							<h5 className='about__container--bottom__info--title'> Address </h5>
+							<p> {user.address} </p>
+						</div>
 					</div>
 				</div>
 			))}

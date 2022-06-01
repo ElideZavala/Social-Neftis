@@ -9,9 +9,12 @@ import  photo  from "../images/avatar/banner.png";
 // import  perfileImg  from "../images/avatar/perfile.png";
 // import  gradiente  from "../images/avatar/gradiente.png";
 
-const [onEdit, setOnEdit] = useState(false); 
+// =================== Coponents =====================
+import EditProfile from './EditProfile';
+
 
 const Info = ({userData, profile, auth, id }) => {
+	const [onEdit, setOnEdit] = useState(false); 
 	// const [ userData, setUserData ] = useState([])
 	// const { id } = useParams();
 	// const { auth, profile } = useSelector(state => state)
@@ -60,7 +63,7 @@ const Info = ({userData, profile, auth, id }) => {
 						</div>
 					</div>
 					{
-						onEdit && <EditProfile user={user} />
+						onEdit && <EditProfile user={user} setOnEdit={setOnEdit}/>
 					}
 				</div>
 			)))}
