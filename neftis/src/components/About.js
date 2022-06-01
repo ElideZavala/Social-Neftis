@@ -30,27 +30,27 @@ const About = () => {
 						<h4 className='about__container--top__bio'>Bio</h4>
 					</div>
 					<div className='about__container--center'>
-						<p className='about__container--top__story'>{user.story}</p>
+						<p className='about__container--center__story'>{user.story}</p>
 					</div>
 					<div className='about__container--bottom'>
 						<div className='about__container--bottom__info'>
-							<h6> Joined </h6>
+							<h5 className='about__container--bottom__info--title'> Joined </h5>
 							<p> {user.createdAt} </p>
 						</div>
 						<div className='about__container--bottom__info'>
-							<h6> Gender </h6>
+							<h5 className='about__container--bottom__info--title'> Gender </h5>
 							<p> {user.gender} </p>
 						</div>
 						<div className='about__container--bottom__info'>
-							<h6> Phone </h6>
+							<h5 className='about__container--bottom__info--title'> Phone </h5>
 							<p> {user.phone} </p>
 						</div>
 						<div className='about__container--bottom__info'>
-							<h6> Email </h6>
+							<h5 className='about__container--bottom__info--title'> Email </h5>
 							<p> {user.email} </p>
 						</div>
 						<div className='about__container--bottom__info'>
-							<h6> Website </h6>
+							<h5 className='about__container--bottom__info--title'> Website </h5>
 							<p> {user.website} </p>
 						</div>
 					</div>
