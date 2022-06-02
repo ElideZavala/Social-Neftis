@@ -7,16 +7,16 @@ const EditProfile = ({user, setOnEdit}) => {
 	
 	const initState = {
 		story: '',
-		gender: '',
 		phone: '',
 		fullname: '',
 		website: '',
-		adress: '',
+		address: '',
 	}
 
 	const [ editData, setEditData ] = useState(initState);
-	const { story, gender, phone, fullname, website, adress } = editData;
+	const { story, phone, fullname, website, address } = editData;
 	const [ avatar, setAvatar ] = useState('')
+	// Why you need here is i will be come back note to me.
 	const [ wallpaper, setWallpaper ] = useState('')	
 
 	const changeAvatar = () => {
@@ -62,7 +62,27 @@ const EditProfile = ({user, setOnEdit}) => {
 				<div className='editProfile__userdata--fullname'>
 					<input type='text' value={fullname} onChange={handleChangeInput} name='fullname' placeholder='Type your name' />
 					<small>{fullname.length}/25</small>
+				</div>
 
+				<label htmlFor='address'>Address</label>
+				<div className='editProfile__userdata--address'>
+					<input type='text' value={address} onChange={handleChangeInput} name='address' placeholder='Type your Address' />
+				</div>
+
+				<label htmlFor='website'>website</label>
+				<div className='editProfile__userdata--website'>
+ 					<input type='text' value={website} onChange={handleChangeInput} name='website' placeholder='Type your website' />
+				</div>
+
+				<label htmlFor='phone'>Phone</label>
+				<div className='editProfile__userdata--phone'>
+					<input type='text' value={phone} onChange={handleChangeInput} name='phone' placeholder='Type your phone number' />
+				</div>
+				
+				<label htmlFor='story'>Story</label>
+				<div className='editProfile__userdata--story'>
+					<input type='text' value={story} onChange={handleChangeInput} name='story' placeholder='Type your Bio' />
+					<small>{story.length}/200</small>
 				</div>
 			</div>
 		</div>
