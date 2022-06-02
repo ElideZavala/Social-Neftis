@@ -23,6 +23,17 @@ const EditProfile = ({user, setOnEdit}) => {
 
 	}
 
+	const changeWallpaper = () => {
+
+	}
+
+	const handleChangeInput = (e) => {
+		const { name, value } = e.target;
+		setEditData({...editData, [name]:value})
+	} 
+
+	console.log(editData)
+
 	return ( 
 		<div className='editProfile'>
 			<div className='editProfile__head'>
@@ -33,7 +44,13 @@ const EditProfile = ({user, setOnEdit}) => {
 					Close
 				</button>
 			</div>
-			{/* Cambiar nuestro Avatar/Imagen de perfil */}
+			{/* Cambiar nuestro Avatar y Wallpaper /Imagen de perfil */}
+			<div className='editProfile__avatar'>
+				<img src={wallpaper ? URL.createObjectURL(wallpaper) : auth.user.wallpaper} alt='wallpaper' />
+				<span>
+					<input type='file' id='file-upload' accept='image/*' onChange={changeWallpaper} />
+				</span>
+			</div>
 			<div className='editProfile__avatar'>
 				<img src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar} alt='avatar' />
 				<span>
@@ -41,7 +58,12 @@ const EditProfile = ({user, setOnEdit}) => {
 				</span>
 			</div>
 			<div className='editProfile__userdata'>
+				<label htmlFor='fullname'>Fullname</label>
+				<div className='editProfile__userdata--fullname'>
+					<input type='text' value={fullname} onChange={handleChangeInput} name='fullname' placeholder='Type your name' />
+					<small>{fullname.length}/25</small>
 
+				</div>
 			</div>
 		</div>
 	 );
