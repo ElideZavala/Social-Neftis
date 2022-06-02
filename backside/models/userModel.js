@@ -43,6 +43,10 @@ const userSchema = mongoose.Schema({
 		type: String,
 		default: ''
 	},
+	wallpaper:{
+		type: String,
+		default: ''
+	},
 	story: {
 		type: String,
 		default: '',

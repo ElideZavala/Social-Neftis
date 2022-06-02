@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getProfileUsers } from '../redux/actions/profileActions';
 
 // ===================  Photos =====================
-import  wallpaper  from "../images/avatar/wallpaper.jpg";
-import  photo  from "../images/avatar/banner.png";
-// import  perfileImg  from "../images/avatar/perfile.png";
-// import  gradiente  from "../images/avatar/gradiente.png";
+// import  wallpaper  from "../images/avatar/wallpaper.jpg";
+// import  avatar  from "../images/avatar/banner.png";
+import  avatar  from "../images/avatar/perfile.png";
+import  wallpaper  from "../images/avatar/gradiente.png";
 
 // =================== Coponents =====================
 import EditProfile from './EditProfile';
@@ -32,18 +32,20 @@ const Info = ({userData, profile, auth, id }) => {
 	// 	}
 	// } , [id, auth.user, auth, profile.users, dispatch]);
 
+	// console.log(auth.user.wallpaper)
+	// console.log(auth.user)
 	return ( 
 		<div className="profileInfo">
 			{ userData.length > 0 && userData.map((user => (
-
 				<div className='profileInfo__container' key={user._id}>
 					<div className='profileInfo__container--top'>
-						<img src={auth.avatar === '' ? photo : wallpaper } alt="avatar" className='profileInfo__container--top__avatar'/>
+						{/* <img src={auth.avatar === '' ? photo : wallpaper } alt="avatar" className='profileInfo__container--top__avatar'/> */}
+						<img src={user.wallpaper === '' ? wallpaper : user.wallpaper} alt="wallpaper" className='profileInfo__container--top__avatar'/>
 						{/* <img src={wallpaper} alt="avatar" className='profileInfo__container--top__avatar'/> */}
 					</div>
 					<div className="profileInfo__container--center">
-						{/* <img src={auth.avatar === '' ? photo : perfileImg } className="profileInfo__container--center__avatar" /> */}
-						<img src={photo} className="profileInfo__container--center__avatar" />
+						<img src={user.avatar === '' ? avatar : user.wallpaper} className="profileInfo__container--center__avatar" />
+						{/* <img src={photo} className="profileInfo__container--center__avatar" /> */}
 						<button className="profileInfo__container--center__add" onClick={() => setOnEdit(true)}><span>&#43;</span>EDIT PROFILE</button>
 					</div>
 					<div className="profileInfo__container--bottom">
