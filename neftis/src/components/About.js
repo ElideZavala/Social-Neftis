@@ -6,8 +6,6 @@ import { getProfileUsers } from '../redux/actions/profileActions';
 
 const About = ({userData, profile, auth, id }) => {
 
-
-
 	return ( 
 		<div className='about'>
 			{userData.length > 0 && userData.map(user => (
