@@ -15,7 +15,7 @@
 		position: absolute;
 		top: 20vh;
 		display: flex;
-		flex-direction: column;
+		// flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		text-transform: uppercase;
@@ -32,7 +32,7 @@
 			outline: none;
 			@extend %difuminado;
 			text-transform: uppercase;
-			padding: 0.5rem;
+			padding: .8rem;
 			cursor: pointer;
 			transition: all 0.3s ease-in-out;
 			font-size: font-size(font-size-small);
@@ -41,8 +41,9 @@
 			font-weight: 600;
 			
 			&:hover {
-				@include background-color(var(--color-quinary));
-				box-shadow: 0 0 10px var(--color-quinary);
+				color: var(--color-quinary);
+				background-color: var(--color-secondary);
+				box-shadow: 0 0 10px var(--color-secondary);
 			}
 		}
 	}
@@ -98,15 +99,59 @@
 	&__userdata {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
+		padding: .5vw 3vw;
+		border-radius: 8px;
+		background-color: var(--color-quinary-m);
+		margin-top: 8vw; 
+		font-family: 'Nuosu SIL', serif;
 
 		> label {
 			font-size: font-size(font-size-medium);
 			margin-top: 2rem; 
+			// padding: .2vw;
+			margin: .8vw;
+			text-transform: uppercase;
+			font-weight: 600;
+			letter-spacing: 1.2px;
+		}
+		
+		div {
+			 input {
+				border: none;
+				outline: none;
+				background: transparent;
+				color: var(--color-text);
+				font-size: font-size(font-size-regular);
+				border-radius:  8px;
+				letter-spacing: 2px;
+				padding: .5vw 1.5vw;
+				box-shadow: 0 0 25px var(--color-quaternary-m);	
+			}
+			
+		}
+
+		:first-child,
+		:last-child {
+			display: flex;
+			flex-direction: column;
 		}
 
 		div small {
 			margin-left: 1rem;
+		}
 
+		&--story {
+			background-color: #fff;
+			 
+			:first-child {
+				height: 100%;
+				padding: auto;
+				overflow-wrap: anywhere;
+				hyphens: auto;
+				word-break: break-all;
+				// word-break: break-word;
+			}
 		}
 	}
 }

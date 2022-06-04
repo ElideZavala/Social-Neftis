@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import perfile from '../images/avatar/banner.png'
+import perfile from '../images/avatar/perfile.png'
 import img from '../images/avatar/gradiente.png'
 
 const EditProfile = ({user, setOnEdit}) => {
@@ -43,7 +43,7 @@ const EditProfile = ({user, setOnEdit}) => {
 					Edit Your Profile
 				</h4>
 				<button className='editProfile__head--close' onClick={() => setOnEdit(false)}>
-					Close
+					x
 				</button>
 			</div>
 			{/* Cambiar nuestro Avatar y Wallpaper /Imagen de perfil */}
