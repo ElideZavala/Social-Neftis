@@ -15,7 +15,6 @@
 		position: absolute;
 		top: 20vh;
 		display: flex;
-		// flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		text-transform: uppercase;
@@ -93,7 +92,6 @@
 				@extend %inputFile;
 			}
 		}
-
 	}
 
 	&__userdata {
@@ -103,13 +101,12 @@
 		padding: .5vw 3vw;
 		border-radius: 8px;
 		background-color: var(--color-quinary-m);
-		margin-top: 8vw; 
+		margin-top: 10vw; 
 		font-family: 'Nuosu SIL', serif;
 
 		> label {
 			font-size: font-size(font-size-medium);
 			margin-top: 2rem; 
-			// padding: .2vw;
 			margin: .8vw;
 			text-transform: uppercase;
 			font-weight: 600;
@@ -142,15 +139,16 @@
 		}
 
 		&--story {
-			background-color: #fff;
 			 
 			:first-child {
-				height: 100%;
-				padding: auto;
-				overflow-wrap: anywhere;
-				hyphens: auto;
-				word-break: break-all;
-				// word-break: break-word;
+				background-color: transparent;
+				resize: none;
+				font-size: font-size(font-size-regular);
+				text-indent: 10px;
+				outline: none;
+				box-shadow: 0 0 25px var(--color-quaternary-m);
+				border: none;
+				color: var(--color-text);
 			}
 		}
 	}

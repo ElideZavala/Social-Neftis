@@ -88,7 +88,7 @@ const EditProfile = ({user, setOnEdit}) => {
 				
 				<label htmlFor='story'>Story</label>
 				<div className='editProfile__userdata--story'>
-					<input type='text' value={story} onChange={handleChangeInput} name='story' placeholder='Type your Bio' />
+					<textarea type='text' maxlength='200' cols="25" rows='4' wrap='hard' placeholder='Write Your Bio'value={story} onChange={handleChangeInput} name='story' />
 					<small>{story.length}/200</small>
 				</div>
 			</div>
