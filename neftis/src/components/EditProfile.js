@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
+import perfile from '../images/avatar/banner.png'
+import img from '../images/avatar/gradiente.png'
 
 const EditProfile = ({user, setOnEdit}) => {
 
@@ -45,18 +47,23 @@ const EditProfile = ({user, setOnEdit}) => {
 				</button>
 			</div>
 			{/* Cambiar nuestro Avatar y Wallpaper /Imagen de perfil */}
-			<div className='editProfile__avatar'>
-				<img src={wallpaper ? URL.createObjectURL(wallpaper) : auth.user.wallpaper} alt='wallpaper' />
-				<span>
-					<input type='file' id='file-upload' accept='image/*' onChange={changeWallpaper} />
-				</span>
+			<div className='editProfile__image'>
+				<div className='editProfile__image--wallpaper'>
+					{/* <img src={wallpaper ? URL.createObjectURL(wallpaper) : auth.user.wallpaper} alt='wallpaper' /> */}
+					<img src={img} alt='wallpaper' />
+					<span>
+						<input type='file' id='file-upload' accept='image/*' onChange={changeWallpaper} />
+					</span>
+				</div>
+				<div className='editProfile__image--avatar'>
+					{/* <img src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar} alt='avatar' /> */}
+					<img src={perfile} alt='avatar' />
+					<span>
+						<input type='file' id='file-upload' accept='image/*' onChange={changeAvatar} />
+					</span>
+				</div>
 			</div>
-			<div className='editProfile__avatar'>
-				<img src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar} alt='avatar' />
-				<span>
-					<input type='file' id='file-upload' accept='image/*' onChange={changeAvatar} />
-				</span>
-			</div>
+			{/* Cambiar los demas elementos */}
 			<div className='editProfile__userdata'>
 				<label htmlFor='fullname'>Fullname</label>
 				<div className='editProfile__userdata--fullname'>

@@ -48,3 +48,9 @@ $font-sizes: (
 @function font-size($font-size-style) {
 	@return map-get($font-sizes, $font-size-style) 
 };
+
+// *-*-*-*-*-*-*-*-*-* background&color *-*-*-*-*-*-*-*-*-*-*-*-*
+@mixin background-color($color) {
+	  background-color: $color;
+	  color: var(--color-primary)
+ }

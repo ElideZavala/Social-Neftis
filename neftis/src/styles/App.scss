@@ -70,3 +70,12 @@
 	backdrop-filter: blur(14px);
 	background-color: rgba(255, 255, 255, 0.2);
 }
+
+/*------ input type file ------ */
+%inputFile {
+	cursor: pointer;
+	position: absolute;
+	bottom: -2vw;
+	padding: 6px 12px;
+	background-color: var(--color-quinary-m);
+}
