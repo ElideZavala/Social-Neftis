@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import perfile from '../images/avatar/perfile.png'
-import img from '../images/avatar/gradiente.png'
+import { checkImage } from "../utils/imageupload";
+
+/* images */
+// import perfile from '../images/avatar/perfile.png'
+// import img from '../images/avatar/gradiente.png'
 
 const EditProfile = ({user, setOnEdit}) => {
 
 	const { auth } = useSelector(state => state);
+	const dispatch = useDispatch();
 	
 	const initState = {
 		story: '',
@@ -18,15 +22,24 @@ const EditProfile = ({user, setOnEdit}) => {
 	const [ editData, setEditData ] = useState(initState);
 	const { story, phone, fullname, website, address } = editData;
 	const [ avatar, setAvatar ] = useState('')
-	// Why you need here is i will be come back note to me.
 	const [ wallpaper, setWallpaper ] = useState('')	
+	// Why you need here is i will be come back note to me.
 
-	const changeAvatar = () => {
-
+	const changeAvatar = (e) => {
+		const file = e.target.files[0];
+		const err = checkImage(file)
+		if(err) return dispatch({type:"ALERT", payload:{error: err}})
+		setAvatar(file);
 	}
 
-	const changeWallpaper = () => {
+	useEffect(() => {
+		setEditData(user)
+	}, [user])
 
+	const changeWallpaper = (e) => {
+		const file = e.target.files[0];
+		console.log(file)
+		setWallpaper(file);
 	}
 
 	const handleChangeInput = (e) => {
@@ -34,7 +47,15 @@ const EditProfile = ({user, setOnEdit}) => {
 		setEditData({...editData, [name]:value})
 	} 
 
-	console.log(editData)
+	const selectUploadAvatar = () => {
+		const fileUploadInput = document.getElementById('file-uploadAvatar');
+		fileUploadInput.click();
+	}
+
+	const selectUploadWallpaper = () => {
+		const fileUploadInput = document.getElementById('file-uploadWallpaper');
+		fileUploadInput.click();
+	}
 
 	return ( 
 		<div className='editProfile'>
@@ -49,17 +70,19 @@ const EditProfile = ({user, setOnEdit}) => {
 			{/* Cambiar nuestro Avatar y Wallpaper /Imagen de perfil */}
 			<div className='editProfile__image'>
 				<div className='editProfile__image--wallpaper'>
-					{/* <img src={wallpaper ? URL.createObjectURL(wallpaper) : auth.user.wallpaper} alt='wallpaper' /> */}
-					<img src={img} alt='wallpaper' />
+					<img src={wallpaper ? URL.createObjectURL(wallpaper) : auth.user.wallpaper} alt='wallpaper' />
+					{/* <img src={img} alt='wallpaper' /> */}
+					<i className='fas fa-camera' onClick={selectUploadWallpaper}></i>
 					<span>
-						<input type='file' id='file-upload' accept='image/*' onChange={changeWallpaper} />
+						<input type='file' id='file-uploadWallpaper' accept='image/*' onChange={changeWallpaper} />
 					</span>
 				</div>
 				<div className='editProfile__image--avatar'>
-					{/* <img src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar} alt='avatar' /> */}
-					<img src={perfile} alt='avatar' />
+					<img src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar} alt='avatar' />
+					{/* <img src={perfile} alt='avatar' /> */}
+					<i className='fas fa-camera' onClick={selectUploadAvatar}></i>
 					<span>
-						<input type='file' id='file-upload' accept='image/*' onChange={changeAvatar} />
+						<input type='file' id='file-uploadAvatar' accept='image/*' onChange={changeAvatar} />
 					</span>
 				</div>
 			</div>
@@ -67,7 +90,7 @@ const EditProfile = ({user, setOnEdit}) => {
 			<div className='editProfile__userdata'>
 				<label htmlFor='fullname'>Fullname</label>
 				<div className='editProfile__userdata--fullname'>
-					<input type='text' value={fullname} onChange={handleChangeInput} name='fullname' placeholder='Type your name' />
+					<input type='text' maxlength='25' value={fullname} onChange={handleChangeInput} name='fullname' placeholder='Type your name' />
 					<small>{fullname.length}/25</small>
 				</div>
 
