@@ -19,6 +19,20 @@ const userController = {
 		} catch (err) {
 			return res.status(500).json({msg: err.message})			
 		}
+	}, 
+	updateUser: async (req, res) => {
+ 		try {
+ 			const { story, phone, fullname, website, address } = res.body;
+			if(!fullname) return res.status(400).json({msg: 'Fullname is requires'})
+
+			await Users.findOneAndUpdate({_id: req.user._id}, {
+				story, phone, fullname, website, address 
+			})
+
+			res.json({ msg: 'update success' })
+		} catch (error) {
+			return res.status(500).json({msg: err.message})
+		}
 	}
  }
 

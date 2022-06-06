@@ -54,13 +54,13 @@ const userSchema = mongoose.Schema({
 	},
 	friends: [{
 		// Hacemos referencias al Id del Usuario Amigo.
-		type:mongoose.Types.ObjectId, ref:'User' 
+		type:mongoose.Types.ObjectId, ref:'user' 
 	}],
 	following: [{
-		type:mongoose.Types.ObjectId, ref:'User'
+		type:mongoose.Types.ObjectId, ref:'user'
 	}]
 }, {
 	timestamps: true // Preservar el orden dentro del motor de alamacenamiento. 
 })
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('user', userSchema);

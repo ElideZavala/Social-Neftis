@@ -11,6 +11,7 @@ import  wallpaper  from "../images/avatar/gradiente.png";
 
 // =================== Coponents =====================
 import EditProfile from './EditProfile';
+import GlobalFriendBtn from './GlobalFriendBtn';
 
 
 const Info = ({userData, profile, auth, id }) => {
@@ -31,9 +32,6 @@ const Info = ({userData, profile, auth, id }) => {
 	// 		setUserData(newData);  // ==> Este ya es un array
 	// 	}
 	// } , [id, auth.user, auth, profile.users, dispatch]);
-
-	// console.log(auth.user.wallpaper)
-	// console.log(auth.user)
 	return ( 
 		<div className="profileInfo">
 			{ userData.length > 0 && userData.map((user => (
@@ -44,9 +42,13 @@ const Info = ({userData, profile, auth, id }) => {
 						{/* <img src={wallpaper} alt="avatar" className='profileInfo__container--top__avatar'/> */}
 					</div>
 					<div className="profileInfo__container--center">
-						<img src={user.avatar === '' ? avatar : user.wallpaper} className="profileInfo__container--center__avatar" />
-						{/* <img src={photo} className="profileInfo__container--center__avatar" /> */}
-						<button className="profileInfo__container--center__add" onClick={() => setOnEdit(true)}><span>&#43;</span>EDIT PROFILE</button>
+						<img src={user.avatar === '' ? avatar : user.avatar} className="profileInfo__container--center__avatar" />
+
+						{ user.id === auth.user.id ? 
+						// {/* <img src={photo} className="profileInfo__container--center__avatar" /> */}
+						<button className="profileInfo__container--center__add" onClick={() => setOnEdit(true)}
+						><span>&#43;</span>EDIT PROFILE</button>
+						: <GlobalFriendBtn classbtn="profileInfo__container--center__add" />}
 					</div>
 					<div className="profileInfo__container--bottom">
 						<div className="profileInfo__container--bottom__center">

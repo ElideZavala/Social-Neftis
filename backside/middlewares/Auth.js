@@ -4,6 +4,8 @@ const jwt = require("jsonwebtoken");
 const auth = async (req, res, next) => {
 	try {
 		const token = req.header("Authorization")
+		// const token = req.headers("Authorization")
+		console.log(token)
 
 		if(!token) return res.status(500).json({msg: "Not Valid"}); 
 
