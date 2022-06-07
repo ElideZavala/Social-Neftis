@@ -5,6 +5,6 @@ const { searchUser, getUser, updateUser } = require('../controllers/userControll
 // Creamaos la ruta search 
 router.get('/search', auth, searchUser);
 router.get('/user/:id', auth, getUser);
-router.patch('/user/:id', auth, updateUser);
+router.patch('/user', auth, updateUser);
 
 module.exports = router;

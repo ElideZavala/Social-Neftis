@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
+import { updateProfile } from '../redux/actions/profileActions';
 import { checkImage } from "../utils/imageupload";
 
 /* images */
@@ -55,6 +56,12 @@ const EditProfile = ({user, setOnEdit}) => {
 	const selectUploadWallpaper = () => {
 		const fileUploadInput = document.getElementById('file-uploadWallpaper');
 		fileUploadInput.click();
+	}
+
+	const handleSubmit = (e) => { 
+		e.preventDefault();
+		dispatch(updateProfile({editData, avatar, wallpaper}))
+
 	}
 
 	return ( 
@@ -114,6 +121,7 @@ const EditProfile = ({user, setOnEdit}) => {
 					<textarea type='text' maxlength='200' cols="25" rows='4' wrap='hard' placeholder='Write Your Bio'value={story} onChange={handleChangeInput} name='story' />
 					<small>{story.length}/200</small>
 				</div>
+				<button className='editProfile__userdata--submit' onClick={handleSubmit}>Submit</button>
 			</div>
 		</div>
 	 );

@@ -35,3 +35,7 @@ export const getProfileUsers = ({users, id, auth}) => async (dispatch) => {
 		} 
 	}
 }
+
+export const updateProfile = ({editData, avatar, wallpaper}) => async (dispatch) => { 
+	console.log({editData, avatar, wallpaper});
+}
