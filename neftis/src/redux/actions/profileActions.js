@@ -58,8 +58,20 @@ export const updateProfile = ({editData, avatar, wallpaper, auth}) => async (dis
 		{
 			headers: { Authorization: auth.token }
 		});
+
 		console.log(res);
-		
+		dispatch({
+			type: 'AUTH',
+			payload: {
+				...auth,
+				user: {
+					...auth.user,
+					...editData,
+					avatar: avatar ? mediaAvatar[0].secure_url : auth.user.avatar,
+					wallpaper: wallpaper ? mediaWallpaper[0].secure_url : auth.user.wallpaper,
+				}
+			}
+		})
 
 		/* ------- Guardar las Imagenes ------- */
 		dispatch({type:"ALERT", payload : {loading:false}})

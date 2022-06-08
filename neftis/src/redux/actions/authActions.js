@@ -24,7 +24,6 @@ export const login = (data) => async (dispatch) => {
 			}
 		})
 
-		localStorage.setItem('login', true);
 
 		dispatch({
 			type: ALERT_TYPES.ALERT,
