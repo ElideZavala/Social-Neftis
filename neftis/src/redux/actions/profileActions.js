@@ -37,5 +37,17 @@ export const getProfileUsers = ({users, id, auth}) => async (dispatch) => {
 }
 
 export const updateProfile = ({editData, avatar, wallpaper}) => async (dispatch) => { 
-	console.log({editData, avatar, wallpaper});
+	if(!editData.fullname) return dispatch({type: 'ALERT', payload: {error:'Add you fullname'}})
+	
+	try {
+
+	} catch (err) {
+		dispatch({
+			type: 'ALERT',
+			payload: {
+				error: err.response.data.msg,
+			}
+		})
+	}
+
 }

@@ -44,7 +44,7 @@ const Info = ({userData, profile, auth, id }) => {
 					<div className="profileInfo__container--center">
 						<img src={user.avatar === '' ? avatar : user.avatar} className="profileInfo__container--center__avatar" />
 
-						{ user.id === auth.user.id ? 
+						{ user._id && auth && user._id === auth.user._id ? 
 						// {/* <img src={photo} className="profileInfo__container--center__avatar" /> */}
 						<button className="profileInfo__container--center__add" onClick={() => setOnEdit(true)}
 						><span>&#43;</span>EDIT PROFILE</button>
