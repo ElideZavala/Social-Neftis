@@ -1,6 +1,7 @@
 import { ALERT_TYPES } from "./alertActions";
 import { getDataApi, patchDataApi } from "../../utils/fetchDataApi";
 import { imageUpload } from "../../utils/imageUpload";
+import axios from "axios";
 
 export const PROFILE_TYPES = {
 	LOADING : 'LOADING',
@@ -37,28 +38,36 @@ export const getProfileUsers = ({users, id, auth}) => async (dispatch) => {
 	}
 }
 
-export const updateProfile = ({editData, avatar, wallpaper}) => async (dispatch) => { 
+export const updateProfile = ({editData, avatar, wallpaper, auth}) => async (dispatch) => { 
 	if(!editData.fullname) return dispatch({type: 'ALERT', payload: {error:'Add you fullname'}})
 
 	try {
 		let mediaAvatar;
 		let mediaWallpaper;
 
-		dispatch({type:"Alert", payload : {loading:true}})
+		dispatch({type:"ALERT", payload : {loading:true}})
 		if(avatar) mediaAvatar = await imageUpload([avatar]);
 
 		/* ------- Actualizar nuestros Datos ------- */
-		const res = patchDataApi('user', { 
+		const res = await axios.patch("http://localhost:5000/api/user", {
+		// const res = await patchDataApi('user', { 
 			...editData,
-		})
+			avatar: avatar ? mediaAvatar[0].secure_url : auth.user.avatar,
+			wallpaper: wallpaper ? mediaWallpaper[0].secure_url : auth.user.wallpaper,
+		}, 
+		{
+			headers: { Authorization: auth.token }
+		});
+		console.log(res);
+		
 
 		/* ------- Guardar las Imagenes ------- */
-		dispatch({type:"Alert", payload : {loading:false}})
+		dispatch({type:"ALERT", payload : {loading:false}})
 		console.log(mediaAvatar)
 
-		dispatch({type:"Alert", payload : {loading:true}})
+		dispatch({type:"ALERT", payload : {loading:true}})
 		if(wallpaper) mediaWallpaper = await imageUpload([wallpaper]);
-		dispatch({type:"Alert", payload : {loading:false}})
+		dispatch({type:"ALERT", payload : {loading:false}})
 		console.log(mediaWallpaper)
 
 	} catch (err) {

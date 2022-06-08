@@ -60,7 +60,7 @@ const EditProfile = ({user, setOnEdit}) => {
 
 	const handleSubmit = (e) => { 
 		e.preventDefault();
-		dispatch(updateProfile({editData, avatar, wallpaper}))
+		dispatch(updateProfile({editData, avatar, wallpaper, auth}))
 
 	}
 
