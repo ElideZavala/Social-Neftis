@@ -5,10 +5,25 @@ export const checkImage = (file) => {
 	if(file.type !== 'image/jpeg' && file.type !== 'image/png') return err='file not supported'
 }
 
-export const imageUpload = (images) => { 
+export const imageUpload = async (images) => { 
 	let imgArr = [];
 	for (const item of images) {
 		const formData = new FormData();
 		formData.append("file", item);
+
+		formData.append('upload_preset' , "mk5aahxj")
+		formData.append('cloud_name' , "patito")
+
+		const res = await fetch('https://api.cloudinary.com/v1_1/patito/image/upload', {
+			method: 'POST',
+			body: formData,
+		});
+
+		const data = await res.json();
+		imgArr.push({ 
+			public_id: data.public_id, 
+			secure_url: data.secure_url 
+		});
 	}
+	return imgArr;
 }

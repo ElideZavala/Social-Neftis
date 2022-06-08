@@ -1,5 +1,5 @@
 import { ALERT_TYPES } from "./alertActions";
-import { getDataApi } from "../../utils/fetchDataApi";
+import { getDataApi, patchDataApi } from "../../utils/fetchDataApi";
 import { imageUpload } from "../../utils/imageUpload";
 
 export const PROFILE_TYPES = {
@@ -46,11 +46,20 @@ export const updateProfile = ({editData, avatar, wallpaper}) => async (dispatch)
 
 		dispatch({type:"Alert", payload : {loading:true}})
 		if(avatar) mediaAvatar = await imageUpload([avatar]);
+
+		/* ------- Actualizar nuestros Datos ------- */
+		const res = patchDataApi('user', { 
+			...editData,
+		})
+
+		/* ------- Guardar las Imagenes ------- */
 		dispatch({type:"Alert", payload : {loading:false}})
+		console.log(mediaAvatar)
 
 		dispatch({type:"Alert", payload : {loading:true}})
 		if(wallpaper) mediaWallpaper = await imageUpload([wallpaper]);
 		dispatch({type:"Alert", payload : {loading:false}})
+		console.log(mediaWallpaper)
 
 	} catch (err) {
 		dispatch({
