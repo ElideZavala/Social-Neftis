@@ -1,5 +1,6 @@
 import { ALERT_TYPES } from "./alertActions";
 import { getDataApi } from "../../utils/fetchDataApi";
+import { imageUpload } from "../../utils/imageUpload";
 
 export const PROFILE_TYPES = {
 	LOADING : 'LOADING',
@@ -38,8 +39,18 @@ export const getProfileUsers = ({users, id, auth}) => async (dispatch) => {
 
 export const updateProfile = ({editData, avatar, wallpaper}) => async (dispatch) => { 
 	if(!editData.fullname) return dispatch({type: 'ALERT', payload: {error:'Add you fullname'}})
-	
+
 	try {
+		let mediaAvatar;
+		let mediaWallpaper;
+
+		dispatch({type:"Alert", payload : {loading:true}})
+		if(avatar) mediaAvatar = await imageUpload([avatar]);
+		dispatch({type:"Alert", payload : {loading:false}})
+
+		dispatch({type:"Alert", payload : {loading:true}})
+		if(wallpaper) mediaWallpaper = await imageUpload([wallpaper]);
+		dispatch({type:"Alert", payload : {loading:false}})
 
 	} catch (err) {
 		dispatch({

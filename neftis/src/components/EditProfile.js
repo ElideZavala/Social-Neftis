@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { updateProfile } from '../redux/actions/profileActions';
-import { checkImage } from "../utils/imageupload";
+import { checkImage } from "../utils/imageUpload";
 
 /* images */
 // import perfile from '../images/avatar/perfile.png'

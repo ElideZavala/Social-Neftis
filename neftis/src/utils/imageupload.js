@@ -4,3 +4,11 @@ export const checkImage = (file) => {
 	if(file.size > 1024*1024) return err="file size should be less than 1MB"
 	if(file.type !== 'image/jpeg' && file.type !== 'image/png') return err='file not supported'
 }
+
+export const imageUpload = (images) => { 
+	let imgArr = [];
+	for (const item of images) {
+		const formData = new FormData();
+		formData.append("file", item);
+	}
+}
